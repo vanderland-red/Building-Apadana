@@ -1,5 +1,4 @@
 from flask import Blueprint
-from extentions import db
 
 bp = Blueprint('general', __name__)
 

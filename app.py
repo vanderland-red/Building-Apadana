@@ -3,6 +3,8 @@ from config import *
 from flask_wtf import CSRFProtect
 from extentions import db
 from blueprints.general import bp as general
+from blueprints.admin import bp as admin
+from blueprints.user import bp as user
 
 app = Flask(__name__)
 
@@ -14,6 +16,8 @@ csrf = CSRFProtect(app)
 db.init_app(app)
 
 app.register_blueprint(general)
+app.register_blueprint(admin)
+app.register_blueprint(user)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
