@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<h1>admin panel</h1>
+
+    <form class="admin_login" action="{{ url_for('admin.login') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="username" placeholder="نام کاربری"><br>
+        <input type="password" name="password" placeholder="رمز عبور"><br>
+        <input type="submit" value="ورود">
+    </form>
+    
+{% endblock %}
