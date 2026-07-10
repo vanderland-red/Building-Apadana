@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block body %}
-<h1>صفحه کاربر</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_login.css') }}">
 
-    <section>
+
+    <section class="register-form">
         <h2>ثبت نام</h2>
         <form action="{{ url_for('user.register') }}" method="POST">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -22,7 +23,7 @@
 
     </section>
 
-    <section>
+    <section class="login-form">
         <h2>ورود</h2>
         <form action="{{ url_for('user.login') }}" method="POST">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
