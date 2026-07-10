@@ -68,3 +68,12 @@ def register():
 
     flash("ثبت نام با موفقیت انجام شد", "success")
     return redirect(url_for("general.home"))
+
+
+
+
+
+@bp.route("/user/login", methods=["POST", "GET"])
+def login():
+    if request.method == "GET":
+        return render_template('user/user_login.html')

@@ -22,6 +22,17 @@
 
     </section>
 
+    <section>
+        <h2>ورود</h2>
+        <form action="{{ url_for('user.login') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="fullname" placeholder="نام و نام خانوادگی"><br>
+            <input type="password" name="password" placeholder="رمز عبور"><br>
+
+            <input type="submit" value="ورود">
+        </form>
+    </section>
+
 
 
    
