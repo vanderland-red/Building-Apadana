@@ -67,7 +67,9 @@ def register():
     login_user(save_user)
 
     flash("ثبت نام با موفقیت انجام شد", "success")
-    return redirect(url_for("general.home"))
+    return redirect(url_for("user.dashboard"))
+
+
 
 
 
@@ -76,4 +78,40 @@ def register():
 @bp.route("/user/login", methods=["POST", "GET"])
 def login():
     if request.method == "GET":
+        if current_user.is_authenticated :
+            return redirect(url_for("user.dashboard"))
         return render_template('user/user_login.html')
+    
+    phone = request.form["phone"].strip()
+    password = request.form["password"]
+
+
+    if not phone or not password:
+        flash("رمز عبور یا شماره موبایل اشتباه است", "error")
+        return redirect(url_for("user.login"))
+
+    user = User.query.filter_by(phone= phone).first()
+
+    if user is None or not check_password_hash(user.password, password):
+        flash("شماره موبایل یا رمز عبور اشتباه است", "error")
+        return redirect(url_for("user.login"))
+
+    
+    login_user(user)
+    flash(" با موفقیت وارد شدید", "success")
+    return redirect(url_for('user.dashboard'))
+    
+
+
+@bp.route("/user/dashboard")
+@login_required
+def dashboard():
+    return render_template("user/user_dashboard.html")
+
+
+@bp.route("/logout", methods=["GET"])
+@login_required
+def logout():
+    logout_user()
+    flash("با موفقیت از حساب کاربری خارج شدید", "success")
+    return redirect(url_for("user.register"))
