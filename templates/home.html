@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<h1>Welcome my Nworld</h1>
+
+<a href="{{ url_for('general.home') }}">home</a><br>
+<a href="{{ url_for('admin.login') }}">admin</a><br>
+<a href="{{ url_for('user.register') }}">user</a>
+
+   
+{% endblock %}

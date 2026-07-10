@@ -1,7 +1,12 @@
-from flask import Blueprint,render_template,redirect,request,flash,url_for,session
+from flask import Blueprint,render_template,redirect,request,flash,url_for,session,abort
 from config import ADMIN_USERNAME,ADMIN_PASSWORD
 
 bp = Blueprint('admin', __name__)
+
+@bp.before_request
+def before_request() :
+    if session.get("admin_login") is None and request.endpoint != "admin.login" :
+        abort(403)
 
 @bp.route("/admin", methods=['GET', 'POST'])
 def login() :
@@ -20,6 +25,18 @@ def login() :
     return redirect(url_for("admin.dashboard"))
 
 
+@bp.route("/admin/logout")
+def logout():
+    session.pop("admin_login")  # حذف لاگین ادمین
+    flash("با موفقیت از پنل مدیریت خارج شدید", "success")
+    return redirect(url_for("admin.login"))
+
+
 @bp.route("/admin/dashboard", methods=['GET', 'POST'])
 def dashboard() :
     return render_template("admin/admin_dashboard.html")
+
+
+@bp.route("/admin/dashboard/products", methods=['GET', 'POST'])
+def products() :
+    return render_template("admin/admin_products.html")

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<h1>صفحه کاربر</h1>
+
+    <section>
+        <h2>ثبت نام</h2>
+        <form action="{{ url_for('user.register') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="fullname" placeholder="نام و نام خانوادگی"><br>
+            <input type="number" name="phone" placeholder="شماره موبایل"><br>
+            <input type="email" name="email" placeholder="ایمیل"><br>
+            <input type="password" name="password" placeholder="رمز عبور"><br>
+            <input type="password" name="password_2" placeholder="تکرار رمز عبور"><br>
+
+            <input type="submit" value="ثبت نام">
+        </form>
+
+    </section>
+
+
+
+   
+{% endblock %}
