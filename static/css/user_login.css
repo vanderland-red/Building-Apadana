@@ -11,7 +11,7 @@ body{
     width: 300px;
     max-width: 90%;
     margin: 30px auto;
-    background: #fffdf4;
+    background: #98a50e;
     border: 2px solid #f7df88;
     border-radius: 18px;
     padding: 35px;
@@ -28,7 +28,7 @@ body{
 .register-form h2,
 .login-form h2{
     text-align: center;
-    color: #8b6a00;
+    color: #f4f4f4;
     margin-bottom: 25px;
     font-size: 28px;
 }
@@ -63,7 +63,7 @@ body{
 
 .register-form input[type="submit"],
 .login-form input[type="submit"]{
-    background: #f4c842;
+    background: #d44e00;
     color: #333;
     border: none;
     cursor: pointer;
@@ -80,4 +80,11 @@ body{
 
 ::placeholder{
     color: #999;
+}
+
+span{
+    cursor: pointer;
+}
+span:hover{
+    color: white;
 }
