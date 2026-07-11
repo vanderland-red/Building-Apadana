@@ -5,9 +5,25 @@
 {% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <section class="services-parent">
+        {% for service in services %}
+
+            <div class="service-box">
+
+                <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
+
+                <h3>{{ service.title }}</h3>
 
 
-<a style="position: absolute; left: 0;top: 500px;" href="{{ url_for('admin.login') }}">admin</a><br>
+            </div>
+
+        {% endfor %}
+    </section>
+
+
+<a style="position: absolute; left: 0;bottom: 0;;" href="{{ url_for('admin.login') }}">admin</a><br>
 
    
 {% endblock %}

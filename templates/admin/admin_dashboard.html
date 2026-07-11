@@ -8,17 +8,21 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
 
     <section class="admin-dashboard-parent">
+        <h2>ایجاد سرویس جدید</h2>
         <form action="{{ url_for('admin.dashboard', id=service_id)}}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="text" name="title" placeholder="عنوان"><br>
-            <input type="text" name="description" placeholder="توضیحات"><br>
-            <input type="file" name="icon"><br>
-            <label for="action"><input type="checkbox">فعال</label>
+            <input type="text" name="title" placeholder="عنوان">
+            <input type="text" name="description" placeholder="توضیحات">
+            <input type="file" name="icon">
+            <label for="active">فعال<input type="checkbox" name="active" id="active"></label>
+            <input type="submit" value="ثبت سرویس">
 
         </form>
+        <a class="admin-logout-btn" href="{{ url_for('admin.logout') }}">خروج از پنل ادمین</a>
     </section>
 
-<a href="{{ url_for('admin.logout') }}">خروج از پنل ادمین</a>
+
+
 
    
 {% endblock %}
