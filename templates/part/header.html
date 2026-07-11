@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+
+
+<header>
+    <a class="apadana-logo-link" href="{{ url_for('general.home') }}">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='image/apadana.png') }}" alt="">
+    </div>
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="#">خدمات</a></li>
+            <li><a href="#">درباره آپادانا</a></li>
+            <li><a href="#">پروژه ها</a></li>
+            <li><a href="#">بلاگ</a></li>
+            <li><a href="#">رویداد ها</a></li>
+            <li><a href="#">تماس با ما</a></li>
+        </ul>
+    </nav>
+
+    <a href="{{ url_for('user.register') }}" class="header-btn">ثبت نام</a>
+</header>

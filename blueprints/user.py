@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template,redirect,request,url_for,flash,session
-from models.tables import User
+from models.tables import User,ServiceRequest
 from extentions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required,current_user,logout_user
@@ -103,10 +103,33 @@ def login():
     
 
 
-@bp.route("/user/dashboard")
+@bp.route("/user/dashboard", methods=["POST", "GET"])
 @login_required
 def dashboard():
-    return render_template("user/user_dashboard.html")
+    if request.method == "GET":
+        return render_template("user/user_dashboard.html")
+    
+    address = request.form["address"].strip()
+    description = request.form["description"].strip()
+
+    if len(address) < 5 :
+        flash("لطفا آدرس دقیق تری را بنویسید")
+        return redirect(url_for("user.dashboard"))
+    
+    save_pr = ServiceRequest(
+
+    user_id=current_user.id,
+    service_id=current_user.service_id,
+    address=address,
+    description=description or None
+)
+
+    db.session.add(save_pr)
+    db.session.commit()
+
+    flash("ثبت درخواست با موفقیت انجام شد", "success")
+    return redirect(url_for("user.dashboard"))
+
 
 
 @bp.route("/logout", methods=["GET"])
@@ -115,3 +138,5 @@ def logout():
     logout_user()
     flash("با موفقیت از حساب کاربری خارج شدید", "success")
     return redirect(url_for("user.register"))
+
+

@@ -1,90 +1,130 @@
 body{
     direction: rtl;
     font-family: Vazirmatn, sans-serif;
-    background: #f7f7f7;
     margin: 0;
-    padding: 40px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(135deg,#0f172a,#1e293b,#334155);
 }
 
 .register-form,
 .login-form{
-    width: 300px;
+    width: 380px;
     max-width: 90%;
-    margin: 30px auto;
-    background: #98a50e;
-    border: 2px solid #f7df88;
-    border-radius: 18px;
     padding: 35px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.08);
-    transition: .3s;
+    border-radius: 24px;
+    margin-top: 30px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.1);
+
+    transition: all .35s ease;
 }
 
 .register-form:hover,
 .login-form:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    transform: translateY(-8px);
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.1);
 }
 
 .register-form h2,
 .login-form h2{
     text-align: center;
-    color: #f4f4f4;
-    margin-bottom: 25px;
-    font-size: 28px;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 800;
 }
 
 .register-form input,
 .login-form input{
     width: 100%;
     box-sizing: border-box;
-    padding: 14px 16px;
-    margin-bottom: 15px;
-    border: 1px solid #e5d58c;
-    border-radius: 10px;
-    background: #fff;
+    padding: 15px 18px;
+    margin-bottom: 16px;
+
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+
+    color: white;
+    border-radius: 14px;
     font-size: 15px;
-    transition: .3s;
-}
-.register-form input::placeholder{
-    font-size: 20px;
-    font-weight: 600;
+
+    transition: all .3s ease;
 }
 
-.login-form input::placeholder{
-    font-size: 20px;
-    font-weight: 600;
-}
 .register-form input:focus,
 .login-form input:focus{
     outline: none;
-    border-color: #e7bf2d;
-    box-shadow: 0 0 8px rgba(231,191,45,.35);
+    border-color: #38bdf8;
+
+    box-shadow:
+        0 0 0 4px rgba(56,189,248,.15),
+        0 0 15px rgba(56,189,248,.35);
+
+    background: rgba(255,255,255,.15);
+}
+
+.register-form input::placeholder,
+.login-form input::placeholder{
+    color: rgba(255,255,255,.7);
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .register-form input[type="submit"],
 .login-form input[type="submit"]{
-    background: #d44e00;
-    color: #333;
+    background: linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
     border: none;
-    cursor: pointer;
+    color: white;
     font-size: 17px;
-    font-weight: bold;
-    transition: .3s;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: all .3s ease;
 }
 
 .register-form input[type="submit"]:hover,
 .login-form input[type="submit"]:hover{
-    background: #e9b91d;
-    color: white;
-}
-
-::placeholder{
-    color: #999;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37,99,235,.4);
 }
 
 span{
+    color: #cbd5e1;
     cursor: pointer;
+    transition: .3s;
 }
+
 span:hover{
+    color: #38bdf8;
+}
+
+::selection{
+    background: #38bdf8;
     color: white;
+}
+
+@media (min-width:768px){
+    .register-form,
+    .login-form {
+        margin-top: 150px;
+    }
 }

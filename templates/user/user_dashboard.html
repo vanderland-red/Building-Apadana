@@ -5,7 +5,18 @@
 {% endblock %}
 
 {% block body %}
-<h1>دشبورد کاربر</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+
+<h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
+
+    <section>
+        <form action="{{ url_for('user.dashboard') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="address" placeholder="آدرس محل پروژه"><br>
+            <textarea name="description" placeholder="توضیحات درخواست (اختیاری)"></textarea><br>
+            <input type="submit" value="ثبت درخواست">
+        </form>
+    </section>
 
 <a href="{{ url_for('user.logout') }}">خروج از حساب</a>
 

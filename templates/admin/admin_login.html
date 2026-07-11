@@ -5,13 +5,17 @@
 {% endblock %}
 
 {% block body %}
-<h1>admin panel</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_login.css') }}">
 
-    <form class="admin_login" action="{{ url_for('admin.login') }}" method="POST">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <input type="text" name="username" placeholder="نام کاربری"><br>
-        <input type="password" name="password" placeholder="رمز عبور"><br>
-        <input type="submit" value="ورود">
-    </form>
+
+    <section class="admin-login-parent">
+        <h2>پنل مدیریت</h2>
+        <form class="admin_login" action="{{ url_for('admin.login') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="username" placeholder="نام کاربری"><br>
+            <input type="password" name="password" placeholder="رمز عبور"><br>
+            <input type="submit" value="ورود">
+        </form>
+    </section>
     
 {% endblock %}

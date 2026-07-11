@@ -1,0 +1,134 @@
+header{
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 70px;
+    box-sizing: border-box;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: rgba(15,23,42,.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+}
+.apadana-logo-link{
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.logo h1{
+    margin: 0;
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    transition: .2s;
+    border: 0px solid rgba(15, 23, 42, .75);
+    border-radius: 5px;
+    padding: 20px 6px;
+    
+}
+
+nav ul li a:hover{
+    border: 0px solid black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.33);
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+/* دکمه ورود */
+.header-btn{
+    padding: 12px 24px;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 18px rgba(37,99,235,.35);
+}
+
+.header-btn:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(37,99,235,.45);
+}
+
+/* موبایل */
+@media (max-width:768px){
+
+    header{
+        padding:0 20px;
+        height:70px;
+    }
+    nav{
+        display: none;
+    }
+
+    nav ul{
+        gap:18px;
+    }
+    .apadana-logo-link{
+        margin: auto;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .header-btn{
+        padding:10px 18px;
+    }
+}

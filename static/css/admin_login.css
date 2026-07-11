@@ -1,0 +1,167 @@
+body{
+    margin: 0;
+    direction: rtl;
+    font-family: Vazirmatn, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #334155
+    );
+}
+
+.admin-login-parent{
+
+    width: 400px;
+    max-width: 90%;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    transition: .35s;
+}
+
+.admin-login-parent:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.45),
+        0 0 25px rgba(59,130,246,.2);
+}
+
+.admin-login-parent h2{
+
+    margin: 0 0 30px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.admin_login{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.admin_login input{
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 18px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.10);
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: .3s;
+}
+
+.admin_login input::placeholder{
+
+    color: rgba(255,255,255,.65);
+}
+
+.admin_login input:focus{
+
+    outline: none;
+
+    border-color: #38bdf8;
+
+    background: rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 0 4px rgba(56,189,248,.15),
+        0 0 18px rgba(56,189,248,.35);
+}
+
+.admin_login input[type="submit"]{
+
+    margin-top: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
+    border: none;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 20px rgba(37,99,235,.35);
+}
+
+.admin_login input[type="submit"]:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 28px rgba(37,99,235,.5);
+
+    filter: brightness(1.08);
+}
+
+::selection{
+
+    background: #38bdf8;
+    color: white;
+}
+
+@media (max-width:480px){
+
+    .admin-login-parent{
+
+        padding: 30px 25px;
+    }
+
+    .admin-login-parent h2{
+
+        font-size: 26px;
+    }
+}

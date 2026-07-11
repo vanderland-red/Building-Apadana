@@ -5,11 +5,9 @@
 {% endblock %}
 
 {% block body %}
-<h1>Welcome my Nworld</h1>
 
-<a href="{{ url_for('general.home') }}">home</a><br>
-<a href="{{ url_for('admin.login') }}">admin</a><br>
-<a href="{{ url_for('user.register') }}">user</a>
+
+<a style="position: absolute; left: 0;top: 500px;" href="{{ url_for('admin.login') }}">admin</a><br>
 
    
 {% endblock %}

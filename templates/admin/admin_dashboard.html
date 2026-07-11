@@ -5,8 +5,20 @@
 {% endblock %}
 
 {% block body %}
-<h1>welcome to dashboard Page</h1>
-<a href="{{ url_for('admin.logout') }}">logout</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+
+    <section class="admin-dashboard-parent">
+        <form action="{{ url_for('admin.dashboard', id=service_id)}}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="title" placeholder="عنوان"><br>
+            <input type="text" name="description" placeholder="توضیحات"><br>
+            <input type="file" name="icon"><br>
+            <label for="action"><input type="checkbox">فعال</label>
+
+        </form>
+    </section>
+
+<a href="{{ url_for('admin.logout') }}">خروج از پنل ادمین</a>
 
    
 {% endblock %}
