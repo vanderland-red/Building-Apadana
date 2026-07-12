@@ -33,7 +33,9 @@
 
                 <h3>{{ service.title }}</h3>
 
-                <a href="{{ url_for('admin.delete_service', id=service.id) }}">
+                <a href="{{ url_for('admin.delete_service', id=service.id) }}"
+                onclick="return confirm('آیا از حذف این سرویس مطمئن هستید؟')">
+                    
                     حذف
                 </a>
 
