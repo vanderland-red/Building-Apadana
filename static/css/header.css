@@ -131,4 +131,30 @@ nav ul li a:hover::after{
     .header-btn{
         padding:10px 18px;
     }
+    .banner-img-header{
+        height: 450px;
+    }
+}
+
+@media (min-width:768px){
+    .banner-img-header{
+        height: 550px;
+    }.banner-img-header img{
+        height: 650px !important;
+    }
+}
+
+@media (max-width:768px){
+    .banner-img-header{
+        height: 400px;
+    }
+    .banner-img-header img{
+        height: 500px !important;
+    }
+}
+.banner-img-header img{
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    top: 0;
 }
