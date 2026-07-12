@@ -60,6 +60,7 @@ def dashboard() :
     if icon and icon.filename != '':
         icon.save(f'static/cover/{ service.id }.jpg')
 
+    flash("سرویس با موفقیت اضافه شد", "success")
     return redirect(url_for("admin.dashboard"))
 
 

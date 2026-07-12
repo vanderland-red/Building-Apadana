@@ -6,6 +6,6 @@ bp = Blueprint('general', __name__)
 @bp.route("/")
 def home ():
 
-    services = Service.query.all()
+    services = Service.query.filter(Service.active == True).all()
 
     return render_template("home.html", services=services)
