@@ -38,7 +38,8 @@ def logout():
 @bp.route("/admin/dashboard", methods=['GET', 'POST'])
 def dashboard() :
     if request.method == "GET" :
-        return render_template("admin/admin_dashboard.html")
+        services = Service.query.all()
+        return render_template("admin/admin_dashboard.html", services=services)
     
     title = request.form["title"].strip()
     description = request.form["description"].strip()
@@ -65,9 +66,25 @@ def dashboard() :
 
 
 
+@bp.route("/admin/dashboard/delete/<int:id>")
+def delete_service(id):
+
+    service = Service.query.get_or_404(id)
+
+    db.session.delete(service)
+    db.session.commit()
+
+    return redirect(url_for("admin.dashboard"))
 
 
 
+
+@bp.route("/admin/dashboard/edit/<int:id>")
+def edit_service():
+    service = Service.query.get_or_404(id)
+
+
+    return redirect(url_for("admin.dashboard"))
 
 
     

@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}
-    صفحه ادمین
+صفحه ادمین
 {% endblock %}
 
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+
+<div class="service-parent-admin">
 
     <section class="admin-dashboard-parent">
         <h2>ایجاد سرویس جدید</h2>
@@ -21,8 +23,34 @@
         <a class="admin-logout-btn" href="{{ url_for('admin.logout') }}">خروج از پنل ادمین</a>
     </section>
 
+    <section class="site-services">
+        <h2>سرویس های سایت</h2>
+
+        <div>
+            {% for service in services %}
+
+            <div class="service-box">
+
+                <h3>{{ service.title }}</h3>
+
+                <a href="{{ url_for('admin.delete_service', id=service.id) }}">
+                    حذف
+                </a>
+
+                <a href="{{ url_for('admin.edit_service', id=service.id) }}">
+                    ویرایش
+                </a>
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
+</div>
 
 
 
-   
+
+
 {% endblock %}

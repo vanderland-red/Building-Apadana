@@ -2,7 +2,6 @@ body{
     margin: 0;
     direction: rtl;
     font-family: Vazirmatn, sans-serif;
-
     min-height: 100vh;
 
     display: flex;
@@ -19,9 +18,9 @@ body{
 
 .admin-dashboard-parent{
 
-    width: 500px;
+    width: 400px;
     max-width: 90%;
-
+    margin-top: 50px;
     padding: 40px;
 
     border-radius: 24px;
@@ -231,7 +230,7 @@ body{
 }
 @media (min-width:768px){
     .admin-dashboard-parent{
-        margin-top: 50px;
+        margin-top: 140px;
     }
 }
 
@@ -275,4 +274,147 @@ a:hover{
         0 15px 30px rgba(185,28,28,.5);
 
     filter: brightness(1.08);
+}
+
+.site-services h2{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+.service-parent-admin{
+    display: flex;
+    flex-direction: column;
+}
+
+.site-services{
+    margin-top: 45px;
+}
+
+.site-services h2{
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.site-services > div{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.service-box{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 18px 22px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+}
+
+.service-box:hover{
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.35),
+        0 0 15px rgba(59,130,246,.25);
+}
+
+.service-box h3{
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 20px;
+
+    flex: 1;
+}
+
+.service-box a{
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    transition: .3s;
+}
+
+.service-box a:first-of-type{
+
+    background: linear-gradient(
+        135deg,
+        #ef4444,
+        #b91c1c
+    );
+
+    margin-right: 10px;
+
+    box-shadow:
+        0 8px 18px rgba(185,28,28,.35);
+}
+
+.service-box a:last-of-type{
+
+    background: linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
+    box-shadow:
+        0 8px 18px rgba(37,99,235,.35);
+}
+
+.service-box a:hover{
+
+    transform: translateY(-3px);
+
+    filter: brightness(1.08);
+}
+
+@media (max-width:768px){
+
+    .service-box{
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .service-box h3{
+
+        text-align: center;
+    }
+
+    .service-box a{
+
+        text-align: center;
+        margin: 0;
+    }
 }

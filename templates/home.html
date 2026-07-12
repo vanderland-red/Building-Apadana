@@ -1,29 +1,49 @@
 {% extends "base.html" %}
 
 {% block title %}
-    صفحه ادمین
+صفحه ادمین
 {% endblock %}
 
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-
-    <section class="services-parent">
-        {% for service in services %}
-
-            <div class="service-box">
-
-                <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
-
-                <h3>{{ service.title }}</h3>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
 
 
-            </div>
+<section>
+    <div class="banner-img-header">
+        <img src="{{ url_for('static', filename='image/banner.jpg') }}" alt="apadana-building-banner">
+    </div>
 
-        {% endfor %}
-    </section>
+    <div class="rezomeh-file-parent">
+        <a class="rezomeh-file" href="{{ url_for('static', filename='files/resume.pdf') }}" download>
+
+            <span><img src="{{ url_for('static', filename='image/download-logo.png') }}"></span> <span
+                class="matn-rezomeh">دریافت رزومه</span>
+        </a>
+    </div>
+
+    <div class="center-logo-header">
+        <img src="{{ url_for('static', filename='image/center-logo-apadana.png') }}" alt="apadana-building-logo-center">
+    </div>
+</section>
+
+<section class="services-parent">
+    {% for service in services %}
+
+    <div class="service-box">
+
+        <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
+
+        <h3>{{ service.title }}</h3>
+
+
+    </div>
+
+    {% endfor %}
+</section>
 
 
 <a style="position: absolute; left: 0;bottom: 0;;" href="{{ url_for('admin.login') }}">admin</a><br>
 
-   
+
 {% endblock %}
