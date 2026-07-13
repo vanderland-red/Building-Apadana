@@ -24,30 +24,46 @@
     </section>
 
     <section class="site-services">
+
         <h2>سرویس های سایت</h2>
 
-        <div>
+        <div class="service-parent-admin">
+
             {% for service in services %}
 
             <div class="service-box">
 
-                <h3>{{ service.title }}</h3>
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}"
+                        alt="{{ service.title }}">
+                </div>
 
-                <a href="{{ url_for('admin.delete_service', id=service.id) }}"
-                onclick="return confirm('آیا از حذف این سرویس مطمئن هستید؟')">
-                    
-                    حذف
-                </a>
+                <div class="service-info">
+                    <h3>{{ service.title }}</h3>
+                </div>
 
-                <a href="{{ url_for('admin.edit_service', id=service.id) }}">
-                    ویرایش
-                </a>
+                <div class="service-actions">
+
+                    <a href="{{ url_for('admin.edit_service', id=service.id) }}" class="edit-btn">
+                        ویرایش
+                    </a>
+
+                    <a href="{{ url_for('admin.delete_service', id=service.id) }}" class="delete-btn"
+                        onclick="return confirm('آیا از حذف این سرویس مطمئن هستید؟')">
+                        حذف
+                    </a>
+
+                </div>
 
             </div>
 
             {% endfor %}
+
         </div>
+
     </section>
+</div>
+</section>
 
 </div>
 
