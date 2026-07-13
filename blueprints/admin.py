@@ -35,6 +35,8 @@ def logout():
     return redirect(url_for("admin.login"))
 
 
+
+
 @bp.route("/admin/dashboard", methods=['GET', 'POST'])
 def dashboard() :
     if request.method == "GET" :
@@ -58,6 +60,7 @@ def dashboard() :
     db.session.add(service)
     db.session.commit()
 
+    # چون هنوز شناسه سرویس آیدی ساخته نشده یاید بعد از کامییت فایل عکس ذخیره بشه
     if icon and icon.filename != '':
         icon.save(f'static/cover/{ service.id }.jpg')
 
@@ -79,11 +82,26 @@ def delete_service(id):
 
 
 
-@bp.route("/admin/dashboard/edit/<int:id>")
-def edit_service():
+@bp.route("/admin/dashboard/edit/<int:id>", methods=["GET", "POST"])
+def edit_service(id):
     service = Service.query.get_or_404(id)
 
+    if request.method == "GET" :
+        return render_template("admin/admin_edit_service.html", service=service)
 
+    title = request.form["title"]
+    icon = request.files.get("icon")
+    active = "active" in request.form
+
+    service.title = title
+    service.active = active
+
+    if icon and icon.filename:
+        icon.save(f'static/cover/{service.id}.jpg')
+
+    db.session.commit()
+    
+    flash("سرویس با موفقیت تغییر یافت", "success")
     return redirect(url_for("admin.dashboard"))
 
 

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    محصولات ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_edit_service.css') }}">
+
+    <section class="service-edit-admin">
+        <h2>ویرایش سرویس</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}">
+            <input type="text" name="title" value="{{ service.title }}" placeholder="عنوان">
+            <input type="file" name="icon">
+            <label for="active"><input type="checkbox" name="active" id="active" {% if service.active %}checked{% endif %}>فعال :</label>
+            <input type="submit" value="ذخیره تغییرات">
+        </form>
+
+    </section>
+   
+{% endblock %}
