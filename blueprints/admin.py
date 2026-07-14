@@ -105,4 +105,3 @@ def edit_service(id):
     return redirect(url_for("admin.dashboard"))
 
 
-    

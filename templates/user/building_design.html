@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services-page.css') }}">
+
+    <section class="header-services-parent">
+        <img src="{{ url_for('static', filename='image/design-inside.jpg') }}">
+
+        
+            <div class="background-kadr">
+                <section class="right-line-jadval">
+                    <div class="tag-a-parent">
+                        <a href="{{ url_for('general.home') }}">خانه</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+                        <a href="#">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+
+                            <a class="service-title-color" href="#">{{ service.title }}</a> <!-- چون توی بک اند فقط یک کوِیری رو صدا زدیم پس نیاز به نوشتن حلقه نداره-->
+                    </div>
+
+                    <section class="center-img-article-parent">
+
+                        
+                        <article> 
+                            <h3>آنچه در این صفحه میخوانید</h3>
+                            <ul>
+                                <li><a href="#">تعریف دقیق طراحی داخلی</a></li>
+                                <li><a href="#">وظایف طراح داخلی</a></li>
+                                <li><a href="#">انواع طراحی داخلی از نظر کاربری ساختمان</a></li>
+                                <li><a href="#">تفاوت در دکوراسیون داخلی و طراحی معماری در چیست؟</a></li>
+                                <li><a href="#">عناصر مهم و کلیدی در طراحی داخلی</a></li>
+                                <li><a href="#">انواع سبک های طراحی داخلی</a></li>
+                                <li><a href="#">ترندهای دکوراسیون جدید</a></li>
+                                <li><a href="#">ترندهای مخصوص طراحی داخلی ایرانی</a></li>
+                                <li><a href="#">طراحی داخلی شرقی</a></li>
+                                <li><a href="#">تغییرات طراحی داخلی از گذشته تا کنون</a></li>
+                                
+                            </ul>
+                        </article>
+
+                        <div class="decoorasiooon-image">
+                            <img src="{{ url_for('static', filename='image/decoorasiooon.jpg') }}">
+                        </div>
+
+                    </section>
+                </section>
+            </div>
+            
+    </section>
+
+{% endblock %}

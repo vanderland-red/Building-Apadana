@@ -30,18 +30,18 @@
 <section class="services-parent">
     {% for service in services %}
 
-    <div class="service-box">
+    <a href="{{ url_for('user.service', id=service.id) }}" class="service-link">
+        <div class="service-box">
 
-        <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
+            <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
 
-        <h3>{{ service.title }}</h3>
+            <h3>{{ service.title }}</h3>
 
-
-    </div>
+        </div>
+    </a>
 
     {% endfor %}
 </section>
-
 
 <a style="position: absolute; left: 0;bottom: 0;;" href="{{ url_for('admin.login') }}">admin</a><br>
 
