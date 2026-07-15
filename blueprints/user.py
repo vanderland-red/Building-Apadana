@@ -104,11 +104,14 @@ def login():
     
 
 
-@bp.route("/user/dashboard", methods=["POST", "GET"])
+@bp.route("/user/dashboard/<int:id>", methods=["POST", "GET"])
 @login_required
-def dashboard():
+def dashboard(id):
+
+    service = Service.query.get_or_404(id)
+    
     if request.method == "GET":
-        return render_template("user/user_dashboard.html")
+        return render_template("user/user_dashboard.html", service=service)
     
     address = request.form["address"].strip()
     description = request.form["description"].strip()
@@ -120,16 +123,16 @@ def dashboard():
     save_pr = ServiceRequest(
 
     user_id=current_user.id,
-    service_id=current_user.service_id,
+    service_id=service.id,
     address=address,
     description=description or None
-)
+    )
 
     db.session.add(save_pr)
     db.session.commit()
 
     flash("ثبت درخواست با موفقیت انجام شد", "success")
-    return redirect(url_for("user.dashboard"))
+    return redirect(url_for("user.dashboard", id=id))
 
 
 
@@ -139,6 +142,8 @@ def logout():
     logout_user()
     flash("با موفقیت از حساب کاربری خارج شدید", "success")
     return redirect(url_for("user.register"))
+    
+
 
 
 

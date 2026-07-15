@@ -1,9 +1,114 @@
 body{
-    margin-top: 150px;
+    margin: 0;
+    padding: 0;
+    font-family: Vazirmatn, sans-serif;
+    direction: rtl;
+    background: linear-gradient(135deg,#f1f5f9,#dbeafe);
+    min-height: 100vh;
+    margin-top: 100px;
 }
+
 h2{
     text-align: center;
+    margin: 170px 0 30px;
+    font-size: 32px;
+    color: #1e293b;
 }
-span{
-    color: rebeccapurple;
+
+h2 span{
+    color: #0f766e;
+}
+
+.form-service-parent{
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255,255,255,.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 25px;
+    box-shadow: 0 20px 45px rgba(0,0,0,.15);
+}
+
+.form-service form{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-service input[type="text"],
+.form-service textarea{
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 14px;
+    font-size: 15px;
+    font-family: Vazirmatn,sans-serif;
+    outline: none;
+    transition: .3s;
+    background: rgba(255,255,255,.9);
+    box-sizing: border-box;
+}
+
+.form-service input[type="text"]:focus,
+.form-service textarea:focus{
+    border-color: #0ea5a4;
+    box-shadow: 0 0 0 4px rgba(14,165,164,.15);
+}
+
+.form-service textarea{
+    min-height: 170px;
+    resize: vertical;
+}
+
+.form-service input[type="submit"]{
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#0ea5a4,#14b8a6);
+    color: white;
+    font-size: 17px;
+    font-family: Vazirmatn,sans-serif;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-service input[type="submit"]:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(20,184,166,.35);
+}
+
+.form-service-parent>a{
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 12px 28px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg,#ef4444,#dc2626);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.form-service-parent>a:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(239,68,68,.35);
+}
+
+@media(max-width:768px){
+
+    h2{
+        font-size: 26px;
+        margin-top: 140px;
+    }
+
+    .form-service-parent{
+        width: 95%;
+        padding: 25px;
+    }
+
+}
+.form-service span{
+    color: blue;
 }

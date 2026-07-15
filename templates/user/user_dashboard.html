@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    صفحه ادمین
+صفحه ادمین
 {% endblock %}
 
 {% block body %}
@@ -9,8 +9,12 @@
 
 <h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
 
-    <section>
-        <form action="{{ url_for('user.dashboard') }}" method="POST">
+<section class="form-service-parent">
+
+
+    <section class="form-service">
+        <h3> سرویس  <span>{{ service.title }}</span></h3>
+        <form action="{{ url_for('user.dashboard', id=service.id) }}" method="POST">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="text" name="address" placeholder="آدرس محل پروژه"><br>
             <textarea name="description" placeholder="توضیحات درخواست (اختیاری)"></textarea><br>
@@ -18,9 +22,11 @@
         </form>
     </section>
 
-<a href="{{ url_for('user.logout') }}">خروج از حساب</a>
+    <a href="{{ url_for('user.logout') }}">خروج از حساب</a>
 
-   
+</section>
 
-   
+
+
+
 {% endblock %}
