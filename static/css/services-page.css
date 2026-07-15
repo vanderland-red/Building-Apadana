@@ -28,7 +28,7 @@ body{
 .background-kadr{
     position:relative;
     width:100%;
-    min-height:750px;
+    min-height:590px;
 
     background:linear-gradient(
         rgba(0,0,0,.65),
@@ -155,9 +155,6 @@ body{
     transform:scale(1.03);
 }
 
-/*=========================
-      DESCRIPTION
-=========================*/
 
 .description-onder-page-parent{
     width:100%;
@@ -192,7 +189,8 @@ body{
 .caption-1,
 .caption-2,
 .caption-3,
-.caption-4{
+.caption-4,
+.caption-5{
     background:#fff;
     padding:40px;
     margin-bottom:35px;
@@ -204,7 +202,8 @@ body{
 .caption-1:hover,
 .caption-2:hover,
 .caption-3:hover,
-.caption-4:hover{
+.caption-4:hover,
+.caption-5:hover{
     transform:translateY(-6px);
     box-shadow:0 20px 40px rgba(0,0,0,.12);
 }
@@ -231,21 +230,20 @@ body{
 }
 
 .another-image-design{
-    width:100%;
+    width:600px;
+    height: auto;
     display:block;
     margin:35px 0;
     border-radius:18px;
     box-shadow:0 12px 30px rgba(0,0,0,.15);
     transition:.4s;
+    margin: auto;
 }
 
 .another-image-design:hover{
     transform:scale(1.02);
 }
 
-/*=========================
-      RESPONSIVE
-=========================*/
 
 @media(max-width:768px){
 
