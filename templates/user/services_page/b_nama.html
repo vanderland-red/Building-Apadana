@@ -102,11 +102,11 @@
             </div>
 
 
-            <summary>
-                <a href="{{ url_for('user.dashboard', id=service.id) }}">ثبت درخواست</a>
-
-            </summary>
-
+            <div class="request-btn-parent">
+                <a class="request-btn" href="{{ url_for('user.append_service', id=service.id) }}">
+                    ثبت درخواست
+                </a>
+            </div>
 
 
 

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/append_service.css') }}">
+
+
+<section class="form-service-parent">
+
+
+    <section class="form-service">
+        <h3> سرویس  <span>{{ service.title }}</span></h3>
+        <form action="{{ url_for('user.append_service', id=service.id) }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="address" placeholder="آدرس محل پروژه"><br>
+            <textarea name="description" placeholder="توضیحات درخواست (اختیاری)"></textarea><br>
+            <input type="submit" value="ثبت درخواست">
+        </form>
+    </section>
+
+    <a href="{{ url_for('user.logout') }}">خروج از حساب</a>
+
+</section>
+
+
+
+
+
+{% endblock %}

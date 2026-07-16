@@ -313,3 +313,29 @@ body{
         line-height:2;
     }
 }
+
+.request-btn{
+    display: inline-block;
+    padding: 35px 55px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-family: Vazirmatn, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .3s;
+    box-shadow: 0 6px 18px rgba(37,99,235,.25);
+}
+
+.request-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(37,99,235,.35);
+}
+
+.request-btn:active{
+    transform: scale(.98);
+}
+.request-btn-parent{
+    text-align: center;
+}

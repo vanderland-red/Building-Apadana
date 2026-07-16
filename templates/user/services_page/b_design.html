@@ -159,7 +159,7 @@
 
                     در خصوص نور های مصنوعی می بایست به کاربری ساختمان بدلیل تاثیر مستقیم نور بر حال و هوای محیط توجه
                     داشت.</p>
-                    <img class="another-image-design" src="{{ url_for('static', filename='another_image/decoora-4.jpg') }}">
+                <img class="another-image-design" src="{{ url_for('static', filename='another_image/decoora-4.jpg') }}">
 
 
             </div>
@@ -168,10 +168,11 @@
         </div>
     </section>
 
-    <summary>
-       <a href="{{ url_for('user.dashboard', id=service.id) }}">ثبت درخواست</a>
-        
-    </summary>
+    <div class="request-btn-parent">
+        <a class="request-btn" href="{{ url_for('user.append_service', id=service.id) }}">
+            ثبت درخواست
+        </a>
+    </div>
 
 
 

@@ -8,6 +8,15 @@ from models.tables import Service
 
 bp = Blueprint('user', __name__)
 
+@bp.route("/user/dashboard", methods=["GET"])
+@login_required
+def dashboard():
+    requests = ServiceRequest.query.filter_by(user_id=current_user.id).all()
+    return render_template("user/user_dashboard.html", requests=requests)
+
+
+
+
 @bp.route("/user/register", methods=["POST", "GET"])
 def register():
     if request.method == "GET":
@@ -104,21 +113,21 @@ def login():
     
 
 
-@bp.route("/user/dashboard/<int:id>", methods=["POST", "GET"])
+@bp.route("/user/append-service/<int:id>", methods=["POST", "GET"])
 @login_required
-def dashboard(id):
+def append_service(id):
 
     service = Service.query.get_or_404(id)
     
     if request.method == "GET":
-        return render_template("user/user_dashboard.html", service=service)
+        return render_template("user/append_service.html", service=service)
     
     address = request.form["address"].strip()
     description = request.form["description"].strip()
 
     if len(address) < 5 :
-        flash("لطفا آدرس دقیق تری را بنویسید")
-        return redirect(url_for("user.dashboard"))
+        flash("لطفا آدرس دقیق‌تری را بنویسید", "warning")
+        return redirect(url_for("user.append_service", id=id))
     
     save_pr = ServiceRequest(
 
@@ -132,7 +141,7 @@ def dashboard(id):
     db.session.commit()
 
     flash("ثبت درخواست با موفقیت انجام شد", "success")
-    return redirect(url_for("user.dashboard", id=id))
+    return redirect(url_for("user.append_service", id=id))
 
 
 
