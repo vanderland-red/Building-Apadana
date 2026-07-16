@@ -250,6 +250,9 @@ body{
     body{
         margin-top:50px;
     }
+    .another-image-design{
+        width: 400px;
+    }
 
     .header-services-parent{
         height:auto;

@@ -153,22 +153,22 @@ def service (id):
     service = Service.query.get_or_404(id)
 
     if service.title == "طراحی دکوراسیون داخلی":
-        return render_template("user/building_design.html", service=service)
+        return render_template("user/services_page/b_design.html", service=service)
     
     if service.title == "طراحی نما":
-        return render_template("user/building_nama.html", service=service)
+        return render_template("user/services_page/b_nama.html", service=service)
     
     if service.title == "طراحی تاسیسات برق و مکانیک":
-        return render_template("user/building_bargh.html", service=service)
+        return render_template("user/services_page/b_bargh.html", service=service)
     
     if service.title == "نظارت عالیه":
-        return render_template("user/building_nezarat.html", service=service)
+        return render_template("user/services_page/b_nezarat.html", service=service)
     
     if service.title == "طراحی معماری":
-        return render_template("user/building_memari.html", service=service)
+        return render_template("user/services_page/b_memari.html", service=service)
     
     if service.title == "طراحی سازه":
-        return render_template("user/building_sazeh.html", service=service)
+        return render_template("user/services_page/b_sazeh.html", service=service)
     
     
     return redirect(url_for("general.home"))

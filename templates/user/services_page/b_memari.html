@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services-page.css') }}">
+
+<section class="header-services-parent">
+    <img src="{{ url_for('static', filename='image/design-inside-5.jpg') }}">
+
+
+    <div class="background-kadr">
+        <section class="right-line-jadval">
+            <div class="tag-a-parent">
+                <a href="{{ url_for('general.home') }}">خانه</a> <span><img
+                        src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+                <a href="#">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+
+                <a class="service-title-color" href="#">{{ service.title }}</a>
+                <!-- چون توی بک اند فقط یک کوِیری رو صدا زدیم پس نیاز به نوشتن حلقه نداره-->
+            </div>
+
+            <section class="center-img-article-parent">
+
+
+                <article>
+                    <h3>آنچه در این صفحه میخوانید</h3>
+                    <ul>
+                        <li><a href="#">طراحی معماری چیست؟</a></li>
+                        <li><a href="#">شناخت نیازها و انتظارات کارفرما</a></li>
+                        <li><a href="#">پیش نیازهای طراحی معماری ساختمان</a></li>
+                        <li><a href="#">طراحی معماری داخلی؛ پیوند عملکرد زیبایی و تجربه انسانی</a></li>
+                        <li><a href="#">بررسی نقاط قوت و چالش های پروژه</a></li>
+
+                    </ul>
+                </article>
+
+                <div class="decoorasiooon-image">
+                    <img src="{{ url_for('static', filename='image/decoorasiooon-5.jpg') }}">
+                </div>
+
+            </section>
+        </section>
+
+
+    </div>
+
+    <section class="description-onder-page-parent">
+        <div class="description">
+            <h2>طراحی معماری</h2>
+
+            <div class="caption-1">
+                <h3>برای طراحی معماری از کجا شروع کنیم؟</h3>
+                <p>طراحی معماری،تبدیل نیاز و راهبرد پروژه به طرحی هماهنگ با عملکرد، زیبایی و اقتصاد ساخت است؛ طرحی که با
+                    تحلیل سایت و اقلیم، شناخت کارفرما و کاربری، و انتخاب مناسب فرم، متریال، نور و سیرکولاسیون شکل می
+                    گیرد. در این صفحه، به صورت مرحله به مرحله می بینید چگونه از ایده به مدارک اجرایی دقیق می رسیم؛ از
+                    فاز صفر و مطالعات اولیه تا تهیه پلان، نما و جزئیات فنی، و هم راستاسازی معماری با سازه و تاسیسات برای
+                    اجرای مطمئن،خروجی ما برای پروژه های مسکونی، اداری، هتل و صنعتی، تصویری شفاف از مسیر اجرا و ارزش
+                    افزوده ای قابل اندازه گیری است.پاسخ کوتاه این است: طراحی معماری از شناخت پروژه شروع می شود، نه از
+                    ترسیم پلان.برای مشاهده برگه تعهد معماری به این صفحه مراجعه کنید.</p>
+                <img class="another-image-design"
+                    src="{{ url_for('static', filename='another_image/decoora-10.jpg') }}">
+            </div>
+
+            <div class="caption-2">
+                <h3>شناخت نیازها و انتظارات کارفرما</h3>
+                <p>نقطه ی شروع، هم زبانی طراح معماری ساختمان با کارفرماست: هدف پروژه، اولویت ها، محدودیت ها و سطح کیفیت
+                    مورد انتظار،خروجی این مرحله باید «قابل اندازه گیری» باشد تا در ادامه، درباره آن تصمیم بگیریم:
+
+                    اهداف و KPIها افزایش بهره وری، تصویر برند، ظرفیت/اشغال، بازگشت سرمایه، تجربه ی کاربر
+                    برنامه فضایی Brief فهرست فضاها، متراژ هدف، استانداردهای عملکردی، روابط همجواری
+                    کیفیت و بودجه سطح متریال/تجهیزات، رنج بودجه، هزینه ی چرخه عمر، فازبندی مالی
+                    قیدهای اجرایی و زمانی ددلاین ها، دسترسی کارگاهی، محدودیت های بهره بردار، مسیر اخذ مجوز
+                    ریسک ها و ترجیحا ریسک های فنی/حقوقی، الزامات برندینگ، رفرنس های تصویری مورد قبول
+                    در انتها، یک صورتجلسه و بریف تاییدشده تحویل داده می شود: ماتریس اولویت ها، شیت های داده ی فضا
+                    دیاگرام مجاورت و لیست معیارهای سنجش کیفیت،این مستند، مبنای ارزیابی آلترناتیوهای طراحی و جلوگیری از
+                    تغییرات پرهزینه در مراحل بعد است.</p>
+
+
+                <img class="another-image-design" src="{{ url_for('static', filename='another_image/decoora-11.jpg') }}">
+
+            </div>
+
+
+
+    </section>
+
+    <summary>
+        <a href="{{ url_for('user.dashboard', id=service.id) }}">ثبت درخواست</a>
+
+    </summary>
+
+
+
+
+</section>
+
+{% endblock %}

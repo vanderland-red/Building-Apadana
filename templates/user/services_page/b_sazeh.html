@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services-page.css') }}">
+
+<section class="header-services-parent">
+    <img src="{{ url_for('static', filename='image/design-inside-6.jpg') }}">
+
+
+    <div class="background-kadr">
+        <section class="right-line-jadval">
+            <div class="tag-a-parent">
+                <a href="{{ url_for('general.home') }}">خانه</a> <span><img
+                        src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+                <a href="#">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+
+                <a class="service-title-color" href="#">{{ service.title }}</a>
+                <!-- چون توی بک اند فقط یک کوِیری رو صدا زدیم پس نیاز به نوشتن حلقه نداره-->
+            </div>
+
+            <section class="center-img-article-parent">
+
+
+                <article>
+                    <h3>آنچه در این صفحه میخوانید</h3>
+                    <ul>
+                        <li><a href="#">طراحی سازه چیست؟ بررسی مراحل و اهمیت آن در ایمنی ساختمان</a></li>
+                        <li><a href="#">طراحی سازه ساختمان چیست؟ مراحل اصلی و روش انجام آن</a></li>
+                        <li><a href="#">تحلیل اولیه در طراحی سازه ساختمان و بررسی نیازهای معماری</a></li>
+                        <li><a href="#">بارگذاری و تحلیل استاتیکی و دینامیکی در طراحی سازه ساختمان</a></li>
+                        <li><a href="#">مدل سازی سازه ای در طراحی سازه ساختمان با استفاده از نرم افزارهای تخصصی</a></li>
+
+                    </ul>
+                </article>
+
+                <div class="decoorasiooon-image">
+                    <img src="{{ url_for('static', filename='image/decoorasiooon-6.jpg') }}">
+                </div>
+
+            </section>
+        </section>
+
+
+    </div>
+
+    <section class="description-onder-page-parent">
+        <div class="description">
+            <h2>طراحی سازه</h2>
+
+            <div class="caption-1">
+                <h3>طراحی سازه چیست؟ بررسی مراحل و اهمیت آن در ایمنی ساختمان</h3>
+
+                <p>طراحی سازه (Structural Design)فرآیندی تخصصی در مهندسی عمران است که در آن ابعاد، شکل و جزئیات اجزای
+                    باربر ساختمان به گونه ای محاسبه و مشخص می شوند که ایمنی، دوام و کارایی بنا تضمین گردد. در این
+                    فرایند، مهندس سازه با تکیه بر اصول معماری و آیین نامه های مهندسی، اسکلت ساختمان را برای مقاومت در
+                    برابر بارهای وارده مانند زلزله، باد و نشست زمین طراحی می کند.
+
+                    قیمت طراحی سازه ساختمان های بتنی، فولادی، مسکونی یا تجاری بسته به وسعت پروژه و روش طراحی متفاوت است.
+                    در ادامه، مراحل طراحی سازه، فاکتورهای کلیدی موفقیت و مسیر تبدیل شدن به یک طراح سازه حرفه ای را بررسی
+                    خواهیم کرد.</p>
+                <img class="another-image-design"
+                    src="{{ url_for('static', filename='another_image/decoora-12.jpg') }}">
+
+            </div>
+
+            <div class="caption-2">
+                <h3>طراحی سازه ساختمان چیست؟ مراحل اصلی و روش انجام آن</h3>
+
+                <p>یک پلان معماری استاندارد، مبنای اصلی در فرآیند طراحی سازه به شمار می رود. در واقع، انجام طراحی سازه
+                    بدون توجه به نقشه های معماری نه تنها غیرممکن است، بلکه می تواند در مرحله اجرا باعث بروز تعارض های
+                    جدی ساختاری شود.آنچه طراحی سازه را به فرآیندی خاص و گاه پیچیده تبدیل می کند، توانایی آن در انطباق
+                    کامل و هوشمندانه با پلان معماری است. این انطباق باید به گونه ای انجام شود که ضمن حفظ فرم، عملکرد و
+                    اهداف طراحی معماری، راه حل های سازه ای ارائه دهد که به بهینه سازی مصرف مصالح، کاهش زمان اجرا و
+                    ارتقاء ایمنی کلی پروژه منجر شود.
+
+                </p>
+
+                <img class="another-image-design"
+                    src="{{ url_for('static', filename='another_image/decoora-13.jpg') }}">
+
+            </div>
+
+
+
+    </section>
+
+    <summary>
+        <a href="{{ url_for('user.dashboard', id=service.id) }}">ثبت درخواست</a>
+
+    </summary>
+
+
+
+
+</section>
+
+{% endblock %}

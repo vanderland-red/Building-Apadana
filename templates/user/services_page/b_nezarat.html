@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services-page.css') }}">
+
+<section class="header-services-parent">
+    <img src="{{ url_for('static', filename='image/design-inside-4.jpg') }}">
+
+
+    <div class="background-kadr">
+        <section class="right-line-jadval">
+            <div class="tag-a-parent">
+                <a href="{{ url_for('general.home') }}">خانه</a> <span><img
+                        src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+                <a href="#">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+
+                <a class="service-title-color" href="#">{{ service.title }}</a>
+                <!-- چون توی بک اند فقط یک کوِیری رو صدا زدیم پس نیاز به نوشتن حلقه نداره-->
+            </div>
+
+            <section class="center-img-article-parent">
+
+
+                <article>
+                    <h3>آنچه در این صفحه میخوانید</h3>
+                    <ul>
+                        <li><a href="#">تعریف و اهمیت نظارت عالیه در پروژه های ساختمانی</a></li>
+                        <li><a href="#">نقش نظارت عالیه در کاهش تخلفات ساختمانی</a></li>
+                        <li><a href="#">وظایف ناظر عالیه ساختمان</a></li>
+                        <li><a href="#">مسئولیت های قانونی و حقوقی مهندس ناظر عالیه</a></li>
+                        <li><a href="#">نظارت بر رعایت مقررات ملی ساختمان</a></li>
+
+                    </ul>
+                </article>
+
+                <div class="decoorasiooon-image">
+                    <img src="{{ url_for('static', filename='image/decoorasiooon-4.jpg') }}">
+                </div>
+
+            </section>
+        </section>
+
+
+    </div>
+
+    <section class="description-onder-page-parent">
+        <div class="description">
+            <h2>نظارت عالیه</h2>
+
+            <div class="caption-1">
+                <h3>مسئولیت های قانونی و حقوقی مهندس ناظر عالیه</h3>
+
+                <p>بطور کلی نظارت عالیه به خودی و خود مسئولیتی در ساختمان نداشته و در محاکم قضایی درصدی تقصیر متوجه وی
+                    نخواهد شد مگرآنکه در زمان احداث ساختمان صورت جلسه ای با امضای پیمانکار، کارفرما و نظارت عالیه به
+                    امضا رسیده باشد و یا دستورکاری از نظارت عالیه به پیمانکاران ابلاغ و در جایی ثبت شده باشد. چنانچه حتی
+                    در زمان بهره برداری حادثه ای جانی و مالی رخ دهد ، به طور حتم نظارت عالیه هم در محاکم قضایی درصدی
+                    تقصیر خواهد گرفت .
+
+                    مهندسین فعال در حوزه نظارت عالیه می بایست هوشیار بوده و تصور نکنند که حیطه امنی دارند چراکه یک صورت
+                    جلسه نابجا می تواند تبعات قانونی سنگینی برای شان به همراه داشته باشد.</p>
+                <img class="another-image-design" src="{{ url_for('static', filename='another_image/decoora-8.jpg') }}">
+
+
+
+                <div class="caption-2">
+                    <h3>نظارت بر رعایت مقررات ملی ساختمان</h3>
+                    <p>نظارت بر رعایت مقررات ملی ساختمان منجر به بهبود کیفیت، راندمان و ایمنی می شود و از بروز هرگونه
+                        مشکل در آینده پیشگیری می کند.</p>
+
+                    <img class="another-image-design"
+                        src="{{ url_for('static', filename='another_image/decoora-9.jpg') }}">
+
+                </div>
+
+
+
+    </section>
+
+    <summary>
+        <a href="{{ url_for('user.dashboard', id=service.id) }}">ثبت درخواست</a>
+
+    </summary>
+
+
+
+
+</section>
+
+{% endblock %}
