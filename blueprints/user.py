@@ -27,7 +27,7 @@ def register():
     
     fullname = request.form['fullname'].strip()
     phone = request.form['phone'].strip()
-    email = request.form['email'].strip()
+    email = request.form['email'].strip() or None
     password = request.form['password'].strip()
     password_2 = request.form['password_2'].strip()
 

@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+<section class="main-page-parent">
+    <div class="main-rezomeh-page">
+
+        <h2>میرجاوه</h2>
+
+        <table>
+            <tr>
+                <th>نوع پروژه :</th>
+                <th>مساحت کل :</th>
+                <th>مکان :</th>
+                <th>کارفرما :</th>
+            </tr>
+
+            <tr>
+                <td>صنعتی</td>
+                <td>60000 متر مربع</td>
+                <td>میرجاوه - زاهدان</td>
+                <td>کشت و صنعت مژده</td>
+            </tr>
+        </table>
+
+        <div class="images-parent">
+            <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+            <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+            <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+            <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+            <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+        </div>
+
+        <button id="next_page">بعدی</button>
+        <button id="back-page">قبلی</button>
+    </div>
+
+</section>
