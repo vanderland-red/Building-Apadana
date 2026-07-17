@@ -1,41 +1,76 @@
 body{
     margin:0;
     padding:0;
-    background:#f4f7fb;
-    font-family:Vazirmatn,sans-serif;
     direction:rtl;
-    margin-top: 150px;
+    font-family:Vazirmatn,sans-serif;
+    background:#f4f7fb;
+    margin-top: 120px;
 }
+
+.logout-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    margin:40px 5% 0;
+    padding:12px 24px;
+
+    background:#fff;
+    color:#dc2626;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+
+    border:2px solid #dc2626;
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    background:#dc2626;
+    color:#fff;
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(220,38,38,.25);
+}
+
+/* ===========================
+          Container
+=========================== */
 
 .user-parent{
     width:90%;
-    max-width:1100px;
-    margin:60px auto;
+    max-width:1150px;
+    margin:30px auto 70px;
 }
 
 .user-parent h2{
     text-align:center;
-    font-size:32px;
     color:#1f2937;
+    font-size:34px;
     margin-bottom:45px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .user-parent h2 span{
     color:#2563eb;
 }
 
+/* ===========================
+         Request Card
+=========================== */
 
 .user-parent-inside{
     background:#fff;
     border-radius:18px;
-    padding:25px 30px;
-    margin-bottom:25px;
 
     display:grid;
-    grid-template-columns:80px 260px 1fr;
+    grid-template-columns:80px 220px 1fr 180px;
     align-items:center;
     gap:25px;
+
+    padding:28px;
+    margin-bottom:25px;
 
     border:1px solid #e5e7eb;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -43,9 +78,6 @@ body{
     transition:.35s;
     position:relative;
     overflow:hidden;
-}
-strong{
-    font-weight: 600;
 }
 
 .user-parent-inside::before{
@@ -60,55 +92,106 @@ strong{
 
 .user-parent-inside:hover{
     transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(37,99,235,.15);
+    box-shadow:0 18px 35px rgba(37,99,235,.18);
 }
 
+/* ===========================
+          ID Circle
+=========================== */
 
-.user-parent-inside{
-    color:#374151;
-    font-size:16px;
-    line-height:1.9;
-}
+.user-parent-inside div:first-child{
 
-.user-parent-inside > *:first-child{
-    background:#2563eb;
-    color:#fff;
     width:55px;
     height:55px;
-    border-radius:50%;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
+    background:#2563eb;
+    color:#fff;
+    border-radius:50%;
+
+    font-size:20px;
     font-weight:bold;
-    font-size:18px;
 }
 
-.user-parent-inside > *:nth-child(2){
-    font-weight:600;
+/* ===========================
+        Service Title
+=========================== */
+
+.user-parent-inside div:nth-child(2){
+
+    font-size:20px;
+    font-weight:700;
     color:#111827;
 }
 
-.user-parent-inside > *:last-child{
-    color:#6b7280;
+/* ===========================
+          Address
+=========================== */
+
+.user-parent-inside div:nth-child(3){
+
+    color:#4b5563;
+    line-height:2;
 }
 
+.user-parent-inside strong{
+    color:#111827;
+}
 
-@media(max-width:768px){
+/* ===========================
+           Status
+=========================== */
+
+.status{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+}
+
+.pending{
+    background:#FEF3C7;
+    color:#92400E;
+}
+
+.accepted{
+    background:#DCFCE7;
+    color:#166534;
+}
+
+.rejected{
+    background:#FEE2E2;
+    color:#B91C1C;
+}
+
+/* ===========================
+        Responsive
+=========================== */
+
+@media(max-width:900px){
+
+    .logout-btn{
+        display:flex;
+        justify-content:center;
+        margin:30px auto;
+        width:220px;
+    }
 
     .user-parent h2{
-        font-size:26px;
+        font-size:28px;
     }
 
     .user-parent-inside{
         grid-template-columns:1fr;
         text-align:center;
-        gap:15px;
-        padding:25px 20px;
+        gap:18px;
     }
 
-    .user-parent-inside > *:first-child{
+    .user-parent-inside div:first-child{
         margin:auto;
     }
 }

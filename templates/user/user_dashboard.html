@@ -6,6 +6,7 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+<a class="logout-btn" href="{{ url_for('user.logout') }}">خروج از حساب</a>
 
 <section class="user-parent">
 
@@ -17,13 +18,26 @@
         <div>{{ service.id }}</div>
 
         <div>
+                {{ service.service.title }}
+        </div>
+
+        <div>
             <strong>آدرس:</strong>
             {{ service.address }}
         </div>
 
         <div>
-            <strong>توضیحات:</strong>
-            {{ service.description }}
+            <strong>وضعیت:</strong>
+            {% if service.status == "pending" %}
+            <p class="status pending">🟡 در حال بررسی</p>
+
+            {% elif service.status == "accepted" %}
+            <p class="status accepted">🟢 تأیید شده</p>
+
+            {% elif service.status == "rejected" %}
+            <p class="status rejected">🔴 رد شده</p>
+
+            {% endif %}
         </div>
 
     </div>
