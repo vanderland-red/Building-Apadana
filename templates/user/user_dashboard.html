@@ -7,8 +7,28 @@
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
 
-<h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
+<section class="user-parent">
 
+    <h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
 
+    {% for service in requests %}
+    <div class="user-parent-inside">
+
+        <div>{{ service.id }}</div>
+
+        <div>
+            <strong>آدرس:</strong>
+            {{ service.address }}
+        </div>
+
+        <div>
+            <strong>توضیحات:</strong>
+            {{ service.description }}
+        </div>
+
+    </div>
+    {% endfor %}
+
+</section>
 
 {% endblock %}

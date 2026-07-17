@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     {% block header %}
     {% endblock %}
 </head>
+
 <body>
 
 
@@ -14,17 +16,22 @@
 
     {% include "part/flash_message.html" %}
 
-    
+
     {% block body %}
 
 
     {% endblock %}
 
 
+    {% if request.endpoint != 'user.login'
+    and request.endpoint != 'user.dashboard'
+    and request.endpoint != 'user.register' %}
 
-    {% block footer %}
-        {% include "part/footer.html" %}
-    {% endblock %}
+        {% block footer %}
+            {% include "part/footer.html" %}
+        {% endblock %}
+    {% endif %}
 
 </body>
+
 </html>
