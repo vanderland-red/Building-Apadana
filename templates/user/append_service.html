@@ -13,10 +13,12 @@
 
     <section class="form-service">
         <h3> سرویس  <span>{{ service.title }}</span></h3>
-        <form action="{{ url_for('user.append_service', id=service.id) }}" method="POST">
+        <form action="{{ url_for('user.append_service', id=service.id) }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="text" name="address" placeholder="آدرس محل پروژه"><br>
+            <input type="text" name="address" placeholder="آدرس محل پروژه" required><br>
             <textarea name="description" placeholder="توضیحات درخواست (اختیاری)"></textarea><br>
+            <p>لطفا عکس های مربوط به مکان مورد نظر رو بفرستید :</p>
+            <input type="file" name="images" multiple accept="image/*">
             <input type="submit" value="ثبت درخواست">
         </form>
     </section>

@@ -12,36 +12,42 @@
 
     <h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
 
+
     {% for service in requests %}
-    <div class="user-parent-inside">
 
-        <div>{{ service.id }}</div>
+    <a href="{{ url_for('user.edit_service', id = service.id) }}">
+        <div class="user-parent-inside">
 
-        <div>
+            <div>{{ service.id }}</div>
+
+            <div>
                 {{ service.service.title }}
+            </div>
+
+            <div>
+                <strong>آدرس:</strong>
+                {{ service.address }}
+            </div>
+
+            <div>
+                <strong>وضعیت:</strong>
+                {% if service.status == "pending" %}
+                <p class="status pending">🟡 در حال بررسی</p>
+
+                {% elif service.status == "accepted" %}
+                <p class="status accepted">🟢 تأیید شده</p>
+
+                {% elif service.status == "rejected" %}
+                <p class="status rejected">🔴 رد شده</p>
+
+                {% endif %}
+            </div>
+
         </div>
-
-        <div>
-            <strong>آدرس:</strong>
-            {{ service.address }}
-        </div>
-
-        <div>
-            <strong>وضعیت:</strong>
-            {% if service.status == "pending" %}
-            <p class="status pending">🟡 در حال بررسی</p>
-
-            {% elif service.status == "accepted" %}
-            <p class="status accepted">🟢 تأیید شده</p>
-
-            {% elif service.status == "rejected" %}
-            <p class="status rejected">🔴 رد شده</p>
-
-            {% endif %}
-        </div>
-
-    </div>
+    </a>
     {% endfor %}
+
+
 
 </section>
 

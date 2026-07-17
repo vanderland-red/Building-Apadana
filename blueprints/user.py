@@ -4,7 +4,10 @@ from extentions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required,current_user,logout_user
 import re
-from models.tables import Service
+from models.tables import Service,RequestImage
+import os
+from werkzeug.utils import secure_filename
+
 
 bp = Blueprint('user', __name__)
 
@@ -113,35 +116,66 @@ def login():
     
 
 
-@bp.route("/user/append-service/<int:id>", methods=["POST", "GET"])
+@bp.route("/user/append-service/<int:id>", methods=["GET", "POST"])
 @login_required
 def append_service(id):
 
     service = Service.query.get_or_404(id)
-    
+
     if request.method == "GET":
         return render_template("user/append_service.html", service=service)
-    
+
     address = request.form["address"].strip()
     description = request.form["description"].strip()
 
-    if len(address) < 5 :
+    if len(address) < 5:
         flash("لطفا آدرس دقیق‌تری را بنویسید", "warning")
         return redirect(url_for("user.append_service", id=id))
-    
-    save_pr = ServiceRequest(
 
-    user_id=current_user.id,
-    service_id=service.id,
-    address=address,
-    description=description or None
+    # ذخیره در جدول سرویس ریکوست
+    save_pr = ServiceRequest(
+        user_id=current_user.id,
+        service_id=service.id,
+        address=address,
+        description=description or None
     )
 
     db.session.add(save_pr)
-    db.session.commit()
+
+    db.session.flush() # داده را موقتن به دیتابیس میفرستد
+
+    images = request.files.getlist("images") # متد getlist برای آپلود چند عکس
+
+    for image in images:
+
+        if image and image.filename:
+
+            filename = secure_filename(image.filename) # ذخیره فایل ها برای امنیت بیشتر با این روش
+
+            image.save(
+                os.path.join("static", "u_r_cover", filename)
+            )
+
+            # ذخیره در جدول ریکوست ایمیج
+            save_image = RequestImage(
+                request_id=save_pr.id,
+                image_path=filename
+            )
+
+            db.session.add(save_image)
+
+    db.session.commit() #همه تغییرات دایمی ذخیره میشوند   
 
     flash("ثبت درخواست با موفقیت انجام شد", "success")
-    return redirect(url_for("user.append_service", id=id))
+    return redirect(url_for("user.dashboard"))
+
+
+
+
+@bp.route("/user/dashboard/edit-service/<int:id>")
+@login_required
+def edit_service(id) :
+    return render_template("user/edit_service.html", id=id)
 
 
 
