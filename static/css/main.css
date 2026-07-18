@@ -140,26 +140,29 @@ table tr:last-child:hover td{
 }
 
 #back-page{
-    float:right;
     background:#fff;
-    border:2px solid #d1d5db;
+    border:2px solid #10141c;
     color:#374151;
 }
 
 #next_page{
-    float:left;
-    border:none;
-    background:linear-gradient(135deg,#2563eb,#3b82f6);
-    color:#fff;
+    color:#374151;
+    border:2px solid #10141c;
+}
+#button-parent{
+    text-align: center;
 }
 
 #back-page:hover{
-    background:#f3f4f6;
+    transform:translateY(-2px);
+    background-color: #2563eb;
+    color: white;
 }
 
 #next_page:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(37,99,235,.25);
+    transform:translateY(-2px);
+    background-color: #2563eb;
+    color: white;
 }
 
 .main-rezomeh-page::after{

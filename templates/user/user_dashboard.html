@@ -6,19 +6,17 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
-<a class="logout-btn" href="{{ url_for('user.logout') }}">خروج از حساب</a>
+
 
 <section class="user-parent">
 
     <h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
 
-
     {% for service in requests %}
 
-    <a href="{{ url_for('user.edit_service', id = service.id) }}">
-        <div class="user-parent-inside">
+    <div class="user-parent-inside">
 
-            <div>{{ service.id }}</div>
+        <a class="card-link" href="{{ url_for('user.edit_service', id=service.id) }}">
 
             <div>
                 {{ service.service.title }}
@@ -29,26 +27,37 @@
                 {{ service.address }}
             </div>
 
-            <div>
+            <div class="status-parent">
                 <strong>وضعیت:</strong>
+
                 {% if service.status == "pending" %}
-                <p class="status pending">🟡 در حال بررسی</p>
+                    <p class="status pending">🟡 در حال بررسی</p>
 
                 {% elif service.status == "accepted" %}
-                <p class="status accepted">🟢 تأیید شده</p>
+                    <p class="status accepted">🟢 تأیید شده</p>
 
                 {% elif service.status == "rejected" %}
-                <p class="status rejected">🔴 رد شده</p>
-
+                    <p class="status rejected">🔴 رد شده</p>
                 {% endif %}
             </div>
 
-        </div>
-    </a>
+        </a>
+
+        {% if service.status == "pending" %}
+        <form action="{{ url_for('user.delete_service', id=service.id) }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="delete-btn">
+                حذف
+            </button>
+        </form>
+        {% endif %}
+
+    </div>
+
     {% endfor %}
 
-
-
 </section>
+
+<a class="logout-btn" href="{{ url_for('user.logout') }}">خروج از حساب</a>
 
 {% endblock %}

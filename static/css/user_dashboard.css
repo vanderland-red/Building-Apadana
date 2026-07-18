@@ -3,48 +3,28 @@ body{
     padding:0;
     direction:rtl;
     font-family:Vazirmatn,sans-serif;
-    background:#f4f7fb;
-    margin-top: 120px;
+    background:#eef3f9;
+    margin-top:120px;
 }
 
-.logout-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+*{
+    box-sizing:border-box;
+}
 
-    margin:40px 5% 0;
-    padding:12px 24px;
-
-    background:#fff;
-    color:#dc2626;
+a{
     text-decoration:none;
-    font-size:15px;
-    font-weight:600;
-
-    border:2px solid #dc2626;
-    border-radius:12px;
-
-    transition:.3s;
 }
-
-.logout-btn:hover{
-    background:#dc2626;
-    color:#fff;
-    transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(220,38,38,.25);
-}
-
 
 .user-parent{
-    width:90%;
+    width:92%;
     max-width:1150px;
-    margin:30px auto 70px;
+    margin:50px auto;
 }
 
 .user-parent h2{
     text-align:center;
-    color:#1f2937;
-    font-size:34px;
+    font-size:35px;
+    color:#1e293b;
     margin-bottom:45px;
     font-weight:700;
 }
@@ -53,126 +33,315 @@ body{
     color:#2563eb;
 }
 
+/* کارت */
 
 .user-parent-inside{
+
+    position:relative;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
     background:#fff;
+
     border-radius:18px;
 
-    display:grid;
-    grid-template-columns:80px 220px 1fr 180px;
-    align-items:center;
-    gap:25px;
+    margin-bottom:22px;
 
-    padding:28px;
-    margin-bottom:25px;
+    overflow:hidden;
 
-    border:1px solid #e5e7eb;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border:1px solid #dbe4f0;
 
     transition:.35s;
-    position:relative;
-    overflow:hidden;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,.06);
 }
 
 .user-parent-inside::before{
+
     content:"";
-    position:absolute;
-    right:0;
-    top:0;
-    width:6px;
-    height:100%;
-    background:linear-gradient(#2563eb,#60a5fa);
+
+    width:12px;
+    align-self:stretch;
+
+    background:linear-gradient(
+    180deg,
+    #2563eb,
+    #38bdf8
+    );
 }
 
 .user-parent-inside:hover{
+
     transform:translateY(-6px);
-    box-shadow:0 18px 35px rgba(37,99,235,.18);
-    cursor: pointer;
+
+    box-shadow:
+    0 18px 40px rgba(37,99,235,.16);
 }
 
+/* لینک اصلی */
 
-.user-parent-inside div:first-child{
+.card-link{
 
-    width:55px;
-    height:55px;
+    flex:1;
 
-    display:flex;
-    justify-content:center;
+    display:grid;
+
+    grid-template-columns:
+    220px
+    1fr
+    180px;
+
+    gap:35px;
+
     align-items:center;
 
-    background:#2563eb;
-    color:#fff;
-    border-radius:50%;
+    padding:28px;
 
-    font-size:20px;
-    font-weight:bold;
+    color:#1f2937;
 }
 
+/* عنوان */
 
-.user-parent-inside div:nth-child(2){
+.card-link div:nth-child(1){
 
-    font-size:20px;
+    font-size:22px;
+
     font-weight:700;
+
     color:#111827;
+
+    position:relative;
+
+    padding-right:18px;
 }
 
+.card-link div:nth-child(1)::before{
 
-.user-parent-inside div:nth-child(3){
+    content:"📋";
 
-    color:#4b5563;
+    position:absolute;
+
+    right:-5px;
+}
+
+/* آدرس */
+
+.card-link div:nth-child(2){
+
+    color:#64748b;
+
     line-height:2;
 }
 
-.user-parent-inside strong{
+.card-link strong{
+
     color:#111827;
 }
 
-.status{
-    display:inline-block;
-    padding:8px 18px;
-    border-radius:30px;
-    font-size:14px;
+/* وضعیت */
+
+.card-link div:nth-child(3){
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:14px;
+
+    padding:5px 10px;
+
+    min-width:230px;
+
+    justify-self: end;
+}
+
+.card-link div:nth-child(3) strong{
+
+    font-size:15px;
+    color:#0f172a;
     font-weight:700;
 }
 
+.status{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:120px;
+
+    padding:9px 16px;
+
+    margin:0;
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
 .pending{
+
     background:#FEF3C7;
     color:#92400E;
+    border:1px solid #FCD34D;
 }
 
 .accepted{
+
+    background:#DCFCE7;
+    color:#166534;
+    border:1px solid #86EFAC;
+}
+
+.rejected{
+
+    background:#FEE2E2;
+    color:#B91C1C;
+    border:1px solid #FCA5A5;
+}
+
+.pending{
+
+    background:#FFF7D6;
+    color:#B45309;
+}
+
+.accepted{
+
     background:#DCFCE7;
     color:#166534;
 }
 
 .rejected{
+
     background:#FEE2E2;
     color:#B91C1C;
 }
 
-@media(max-width:768px){
+/* حذف */
 
-    .logout-btn{
-        display:flex;
-        justify-content:center;
-        margin:30px auto;
-        width:150px;
+form{
+
+    padding-left:25px;
+}
+
+.delete-btn{
+
+    border:none;
+
+    margin-right: 15px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+    transform:scale(1.05);
+}
+
+/* خروج */
+
+.logout-btn{
+
+    display:block;
+
+    width:220px;
+
+    margin:45px auto;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.logout-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 12px 25px rgba(37,99,235,.3);
+}
+
+/* موبایل */
+
+@media(max-width:900px){
+
+    .user-parent-inside{
+
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .card-link{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .card-link div:nth-child(3){
+
+        text-align:center;
+    }
+
+    form{
+
+        padding:0 25px 25px;
+    }
+
+    .delete-btn{
+
+        width:100%;
     }
 
     .user-parent h2{
+
         font-size:28px;
     }
+    .card-link div:nth-child(3){
 
-    .user-parent-inside{
-        grid-template-columns:1fr;
-        text-align:center;
-        gap:18px;
-    }
+    width:100%;
 
-    .user-parent-inside div:first-child{
-        margin:auto;
-    }
+    justify-content:space-between;
 }
-a{
-    text-decoration: none;
 }

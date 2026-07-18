@@ -53,6 +53,12 @@ class ServiceRequest(db.Model):
         nullable=False
     )
 
+    request_images = db.relationship(
+        "RequestImage",
+        back_populates="service_request",
+        cascade="all, delete-orphan"
+    )
+
     address = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     status = db.Column(db.String(20), default="pending", nullable=False)
@@ -60,8 +66,6 @@ class ServiceRequest(db.Model):
 
     user = db.relationship("User", backref="user_service_requests")
     service = db.relationship("Service", backref="service_requests")
-
-
 
 
 
@@ -78,5 +82,5 @@ class RequestImage(db.Model):
 
     image_path = db.Column(db.String(255), nullable=False)
 
-    service_request = db.relationship("ServiceRequest", backref="request_images")
+    service_request = db.relationship("ServiceRequest",back_populates="request_images")
 

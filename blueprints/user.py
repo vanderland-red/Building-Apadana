@@ -169,7 +169,20 @@ def append_service(id):
     flash("ثبت درخواست با موفقیت انجام شد", "success")
     return redirect(url_for("user.dashboard"))
 
+@bp.route("/user/dashboard/delete-service/<int:id>")
+@login_required
+def delete_service(id):
+    item = ServiceRequest.query.filter(
+        ServiceRequest.id == id,
+        ServiceRequest.user_id == current_user.id,
+        ServiceRequest.status == "pending"
+    ).first_or_404()
+    
+    db.session.delete(item)
+    db.session.commit()
 
+    flash("سرویس با موفقیت حذف شد", "success")
+    return redirect(url_for("user.dashboard"))
 
 
 @bp.route("/user/dashboard/edit-service/<int:id>")
