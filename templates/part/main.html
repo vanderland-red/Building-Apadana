@@ -1,39 +1,166 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
 
-<section class="main-page-parent">
-    <div class="main-rezomeh-page">
+<section id="main_page_1">
+    <section class="main-page-parent">
+        <div class="main-rezomeh-page">
 
-        <h2>میرجاوه</h2>
+            <h2>میرجاوه</h2>
 
-        <table>
-            <tr>
-                <th>نوع پروژه :</th>
-                <th>مساحت کل :</th>
-                <th>مکان :</th>
-                <th>کارفرما :</th>
-            </tr>
+            <table>
+                <tr>
+                    <th>نوع پروژه :</th>
+                    <th>مساحت کل :</th>
+                    <th>مکان :</th>
+                    <th>کارفرما :</th>
+                </tr>
 
-            <tr>
-                <td>صنعتی</td>
-                <td>60000 متر مربع</td>
-                <td>میرجاوه - زاهدان</td>
-                <td>کشت و صنعت مژده</td>
-            </tr>
-        </table>
+                <tr>
+                    <td>صنعتی</td>
+                    <td>60000 متر مربع</td>
+                    <td>میرجاوه - زاهدان</td>
+                    <td>کشت و صنعت مژده</td>
+                </tr>
+            </table>
 
-        <div class="images-parent">
-            <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
-            <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
-            <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
-            <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
-            <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+            <div class="images-parent">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+            </div>
+
         </div>
 
-        <div id="button-parent">
-            <button id="next_page">بعدی</button>
-            <button id="back-page">قبلی</button>
-        </div>
-    </div>
+    </section>
 
 </section>
+
+
+
+
+
+
+
+<section id="main_page_2">
+
+    <section class="main-page-parent">
+        <div class="main-rezomeh-page">
+
+            <h2>آبادان</h2>
+
+            <table>
+                <tr>
+                    <th>نوع پروژه :</th>
+                    <th>مساحت کل :</th>
+                    <th>مکان :</th>
+                    <th>کارفرما :</th>
+                </tr>
+
+                <tr>
+                    <td>صنعتی</td>
+                    <td>60000 متر مربع</td>
+                    <td>میرجاوه - زاهدان</td>
+                    <td>کشت و صنعت مژده</td>
+                </tr>
+            </table>
+
+            <div class="images-parent">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+
+
+
+
+
+<section id="main_page_3">
+
+    <section class="main-page-parent">
+        <div class="main-rezomeh-page">
+
+            <h2>شیراز</h2>
+
+            <table>
+                <tr>
+                    <th>نوع پروژه :</th>
+                    <th>مساحت کل :</th>
+                    <th>مکان :</th>
+                    <th>کارفرما :</th>
+                </tr>
+
+                <tr>
+                    <td>صنعتی</td>
+                    <td>60000 متر مربع</td>
+                    <td>میرجاوه - زاهدان</td>
+                    <td>کشت و صنعت مژده</td>
+                </tr>
+            </table>
+
+            <div class="images-parent">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+<div id="button-parent">
+    <button onclick="next()" id="next_page">بعدی</button>
+    <button onclick="back()" id="back-page">قبلی</button>
+</div>
+
+
+
+
+
+<script>
+
+    var pages = [
+        document.getElementById("main_page_1"),
+        document.getElementById("main_page_2"),
+        document.getElementById("main_page_3")
+    ];
+
+    var index = 0;
+
+    function showPage() {
+
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].style.display = "none";
+        }
+
+        pages[index].style.display = "block";
+    }
+
+    showPage();
+
+    function next() {
+        index = (index + 1) % pages.length;
+        showPage();
+    }
+
+    function back() {
+        index = (index - 1 + pages.length) % pages.length;
+        showPage();
+    }
+
+</script>
