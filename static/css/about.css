@@ -1,0 +1,181 @@
+body{
+    margin:0;
+    padding:0;
+    direction:rtl;
+    font-family:Vazirmatn,sans-serif;
+    background:#eef3f8;
+    color:#2d3748;
+    margin-top: 150px;
+}
+
+.about-parent{
+    width:min(1100px,90%);
+    margin:60px auto;
+}
+
+/* عنوان */
+
+.about-parent h1{
+    text-align:center;
+    font-size:44px;
+    color:#183b56;
+    margin-bottom:70px;
+    position:relative;
+    letter-spacing:1px;
+}
+
+.about-parent h1::after{
+    content:"";
+    position:absolute;
+    bottom:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90px;
+    height:5px;
+    background:#c89b3c;
+    border-radius:30px;
+}
+
+/* کارت ها */
+
+.text-1,
+.text-2,
+.text-3{
+    background:white;
+    border-radius:22px;
+    padding:35px;
+    margin-bottom:45px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+/* بخش اول */
+
+.text-1{
+    display:grid;
+    grid-template-columns:1.4fr 420px;
+    gap:35px;
+    align-items:center;
+}
+
+/* بخش دوم */
+
+.text-2{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:35px;
+    align-items:start;
+}
+
+/* متن */
+
+.text-1 p,
+.text-2 p,
+.text-3 p{
+    line-height:2.2;
+    text-align:justify;
+    color:#555;
+    font-size:16px;
+}
+
+/* تیتر */
+
+.text-2 h2,
+.text-3 h2{
+    color:#183b56;
+    font-size:30px;
+    margin-bottom:25px;
+    border-right:5px solid #c89b3c;
+    padding-right:15px;
+}
+
+/* تصاویر */
+
+.text-1 img,
+.text-2 img,
+.about-parent>img{
+    width:100%;
+    border-radius:18px;
+    object-fit:cover;
+    transition:.4s;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+
+.text-1 img,
+.text-2 img{
+    width: 440px;
+    height:auto;
+}
+
+.about-parent>img{
+    height:450px;
+    margin-top:30px;
+}
+
+.text-1 img:hover,
+.text-2 img:hover,
+.about-parent>img:hover{
+    transform:scale(1.02);
+}
+
+/* دکمه رزومه */
+
+.rezomeh-file-parent{
+    margin-top:30px;
+}
+
+.rezomeh-file{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    background:#183b56;
+    color:white;
+    padding:14px 26px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.rezomeh-file:hover{
+    background:#032e3b;
+    transform:translateY(-2px);
+}
+
+.rezomeh-file img{
+    width:24px;
+    height:24px;
+    box-shadow:none;
+}
+
+.matn-rezomeh{
+    font-size:15px;
+}
+
+/* ریسپانسیو */
+
+@media(max-width:900px){
+
+    .text-1,
+    .text-2{
+        grid-template-columns:1fr;
+    }
+
+    .text-1 img,
+    .text-2 img{
+        height:240px;
+    }
+
+    .about-parent>img{
+        height:260px;
+    }
+
+    .about-parent h1{
+        font-size:34px;
+    }
+
+    .text-2 h2,
+    .text-3 h2{
+        font-size:24px;
+    }
+
+}
