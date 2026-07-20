@@ -28,7 +28,11 @@
 
     {% if request.endpoint != 'user.login'
     and request.endpoint != 'user.dashboard'
-    and request.endpoint != 'user.register' %}
+    and request.endpoint != 'user.register'
+    and request.endpoint != 'admin.login'
+    and request.endpoint != 'admin.dashboard'
+    and request.endpoint != 'admin.edit_service'
+    and request.endpoint != 'admin.requset_users' %}
 
         {% block footer %}
             {% include "part/footer.html" %}

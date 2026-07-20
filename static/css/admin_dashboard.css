@@ -518,3 +518,11 @@ a:hover{
     }
 
 }
+.requset-users-link a{
+    text-decoration: none;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #06b6d4;
+}

@@ -1,6 +1,6 @@
 from flask import Blueprint,render_template,redirect,request,flash,url_for,session,abort,current_app
 from config import ADMIN_USERNAME,ADMIN_PASSWORD
-from models.tables import Service
+from models.tables import Service,ServiceRequest
 from extentions import db
 
 
@@ -60,7 +60,7 @@ def dashboard() :
     db.session.add(service)
     db.session.commit()
 
-    # چون هنوز شناسه سرویس آیدی ساخته نشده یاید بعد از کامییت فایل عکس ذخیره بشه
+    # چون هنوز شناسه سرویس آیدی ساخته نشده باید بعد از کامییت فایل عکس ذخیره بشه
     if icon and icon.filename != '':
         icon.save(f'static/cover/{ service.id }.jpg')
 
@@ -104,4 +104,11 @@ def edit_service(id):
     flash("سرویس با موفقیت تغییر یافت", "success")
     return redirect(url_for("admin.dashboard"))
 
+
+
+@bp.route("/admin/dashboard/request_user")
+def requset_users ():
+    service_requests = ServiceRequest.query.filter_by(status="pending").all()
+
+    return render_template("admin/admin_request_users.html", service_requests=service_requests)
 

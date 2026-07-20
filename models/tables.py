@@ -53,11 +53,6 @@ class ServiceRequest(db.Model):
         nullable=False
     )
 
-    request_images = db.relationship(
-        "RequestImage",
-        back_populates="service_request",
-        cascade="all, delete-orphan"
-    )
 
     address = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
@@ -66,6 +61,11 @@ class ServiceRequest(db.Model):
 
     user = db.relationship("User", backref="user_service_requests")
     service = db.relationship("Service", backref="service_requests")
+    request_images = db.relationship(
+        "RequestImage",
+        back_populates="service_request",
+        cascade="all, delete-orphan"
+    )
 
 
 
