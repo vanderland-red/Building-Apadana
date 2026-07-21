@@ -16,8 +16,6 @@
 
     <div class="user-parent-inside">
 
-        <a class="card-link" href="{{ url_for('user.edit_service', id=service.id) }}">
-
             <div>
                 {{ service.service.title }}
             </div>
@@ -41,7 +39,6 @@
                 {% endif %}
             </div>
 
-        </a>
 
         {% if service.status == "pending" %}
         <form action="{{ url_for('user.delete_service', id=service.id) }}" method="POST">

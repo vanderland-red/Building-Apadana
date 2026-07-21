@@ -1,347 +1,247 @@
 body{
     margin:0;
     padding:0;
+    margin-top:150px;
     direction:rtl;
     font-family:Vazirmatn,sans-serif;
-    background:#eef3f9;
-    margin-top:120px;
+    background:
+    radial-gradient(circle at top right,#dbeafe 0%,transparent 35%),
+    radial-gradient(circle at bottom left,#bfdbfe 0%,transparent 30%),
+    #eef4fb;
 }
 
-*{
-    box-sizing:border-box;
-}
 
-a{
-    text-decoration:none;
-}
+/*==========================
+        صفحه کاربری
+==========================*/
 
 .user-parent{
+
     width:92%;
-    max-width:1150px;
-    margin:50px auto;
+    max-width:1100px;
+    margin:auto;
+
 }
 
 .user-parent h2{
+
     text-align:center;
-    font-size:35px;
+    margin-bottom:35px;
+    font-size:32px;
     color:#1e293b;
-    margin-bottom:45px;
-    font-weight:700;
+
 }
 
 .user-parent h2 span{
+
     color:#2563eb;
+
 }
 
-/* کارت */
+
+/*==========================
+          کارت
+==========================*/
 
 .user-parent-inside{
 
-    position:relative;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:24px;
+    margin-bottom:28px;
+    border-right:6px solid #2563eb;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:#fff;
-
-    border-radius:18px;
-
-    margin-bottom:22px;
-
-    overflow:hidden;
-
-    border:1px solid #dbe4f0;
+    box-shadow:
+    0 12px 35px rgba(37,99,235,.12);
 
     transition:.35s;
 
-    box-shadow:
-    0 8px 24px rgba(0,0,0,.06);
 }
-
-.user-parent-inside::before{
-
-    content:"";
-
-    width:12px;
-    align-self:stretch;
-
-    background:linear-gradient(
-    180deg,
-    #2563eb,
-    #38bdf8
-    );
+.user-parent-inside form{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    margin-top:18px;
 }
 
 .user-parent-inside:hover{
 
-    transform:translateY(-6px);
-
     box-shadow:
-    0 18px 40px rgba(37,99,235,.16);
+    0 20px 45px rgba(37,99,235,.18);
+
 }
 
-/* لینک اصلی */
 
-.card-link{
+/*==========================
+        اطلاعات
+==========================*/
 
-    flex:1;
+.user-parent-inside div{
 
-    display:grid;
+    margin-bottom:18px;
+    font-size:17px;
+    color:#334155;
 
-    grid-template-columns:
-    220px
-    1fr
-    180px;
-
-    gap:35px;
-
-    align-items:center;
-
-    padding:28px;
-
-    color:#1f2937;
 }
 
-/* عنوان */
+.user-parent-inside div:first-child{
 
-.card-link div:nth-child(1){
+    font-size:23px;
+    font-weight:600;
+    color:#0f172a;
 
-    font-size:22px;
-
-    font-weight:700;
-
-    color:#111827;
-
-    position:relative;
-
-    padding-right:18px;
 }
 
-.card-link div:nth-child(1)::before{
+.user-parent-inside strong{
 
-    content:"📋";
+    color:#2563eb;
 
-    position:absolute;
-
-    right:-5px;
 }
 
-/* آدرس */
 
-.card-link div:nth-child(2){
+/*==========================
+         وضعیت
+==========================*/
 
-    color:#64748b;
-
-    line-height:2;
-}
-
-.card-link strong{
-
-    color:#111827;
-}
-
-/* وضعیت */
-
-.card-link div:nth-child(3){
+.status-parent{
 
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
 
-    gap:15px;
-
-    background:#f8fafc;
-
-    border:1px solid #e2e8f0;
-
-    border-radius:14px;
-
-    padding:5px 10px;
-
-    min-width:230px;
-
-    justify-self: end;
-}
-
-.card-link div:nth-child(3) strong{
-
-    font-size:15px;
-    color:#0f172a;
-    font-weight:700;
 }
 
 .status{
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    min-width:120px;
-
-    padding:9px 16px;
-
+    padding:8px 18px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:600;
     margin:0;
 
-    border-radius:999px;
-
-    font-size:13px;
-    font-weight:700;
-
-    transition:.3s;
 }
 
 .pending{
 
-    background:#FEF3C7;
-    color:#92400E;
-    border:1px solid #FCD34D;
+    background:#fef3c7;
+    color:#d97706;
+
 }
 
 .accepted{
 
-    background:#DCFCE7;
-    color:#166534;
-    border:1px solid #86EFAC;
+    background:#dcfce7;
+    color:#15803d;
+
 }
 
 .rejected{
 
-    background:#FEE2E2;
-    color:#B91C1C;
-    border:1px solid #FCA5A5;
+    background:#fee2e2;
+    color:#dc2626;
+
 }
 
-.pending{
 
-    background:#FFF7D6;
-    color:#B45309;
-}
-
-.accepted{
-
-    background:#DCFCE7;
-    color:#166534;
-}
-
-.rejected{
-
-    background:#FEE2E2;
-    color:#B91C1C;
-}
-
-/* حذف */
-
-form{
-
-    padding-left:25px;
-}
+/*==========================
+        دکمه حذف
+==========================*/
 
 .delete-btn{
 
+    margin-top:18px;
     border:none;
-
-    margin-right: 15px;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-    padding:12px 22px;
-
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+    color:white;
+    padding:11px 26px;
     border-radius:12px;
-
-    background:#ef4444;
-
-    color:#fff;
-
-    font-weight:700;
-
+    font-family:inherit;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
     transition:.3s;
+
 }
 
 .delete-btn:hover{
 
-    background:#dc2626;
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(220,38,38,.35);
 
-    transform:scale(1.05);
 }
 
-/* خروج */
+
+/*==========================
+      دکمه خروج
+==========================*/
 
 .logout-btn{
 
     display:block;
-
-    width:220px;
-
+    width:230px;
     margin:45px auto;
-
     text-align:center;
 
-    padding:15px;
+    text-decoration:none;
+    color:white;
 
-    border-radius:15px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
 
-    background:#2563eb;
+    padding:15px 0;
+    border-radius:14px;
 
-    color:#fff;
+    font-size:17px;
+    font-weight:600;
 
-    font-weight:bold;
+    transition:.35s;
 
-    transition:.3s;
 }
 
 .logout-btn:hover{
 
-    background:#1d4ed8;
-
     transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(37,99,235,.35);
 
-    box-shadow:
-    0 12px 25px rgba(37,99,235,.3);
 }
 
-/* موبایل */
 
-@media(max-width:900px){
+/*==========================
+        موبایل
+==========================*/
 
-    .user-parent-inside{
+@media(max-width:768px){
 
-        flex-direction:column;
-        align-items:stretch;
-    }
+    .user-parent{
 
-    .card-link{
+        width:95%;
 
-        grid-template-columns:1fr;
-
-        text-align:center;
-    }
-
-    .card-link div:nth-child(3){
-
-        text-align:center;
-    }
-
-    form{
-
-        padding:0 25px 25px;
-    }
-
-    .delete-btn{
-
-        width:100%;
     }
 
     .user-parent h2{
 
-        font-size:28px;
+        font-size:25px;
+
     }
-    .card-link div:nth-child(3){
 
-    width:100%;
+    .user-parent-inside{
 
-    justify-content:space-between;
-}
+        padding:18px;
+
+    }
+
+    .status-parent{
+
+        flex-direction:column;
+        align-items:flex-start;
+
+    }
+
+    .logout-btn{
+
+        width:90%;
+
+    }
+
 }
