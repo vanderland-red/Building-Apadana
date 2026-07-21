@@ -7,46 +7,56 @@
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_request_users.css') }}">
 
+
 <section class="request-users-parent">
 
-    {% for request in service_requests %}
+    {% if service_requests %}
 
-    <div class="request-card">
+        {% for request in service_requests %}
 
-        <div class="request-item">
-            <span>👤 نام کاربر</span>
-            <p>{{ request.user.fullname }}</p>
+        <div class="request-card">
+
+            <div class="request-item">
+                <span>👤 نام کاربر</span>
+                <p>{{ request.user.fullname }}</p>
+            </div>
+
+            <div class="request-item">
+                <span>🛠 سرویس</span>
+                <p>{{ request.service.title }}</p>
+            </div>
+
+            <div class="request-item">
+                <span>📌 وضعیت</span>
+                <form action="{{ url_for('admin.select_request', id=request.id) }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <select name="status">
+                        <option class="option-1" value="pending" {% if request.status=="pending" %} selected {% endif %}>در انتظار بررسی
+                        <option class="option-2" value="reject" {% if request.status=="reject" %} selected {% endif %}>رد
+                        <option class="option-3" value="accept" {% if request.status=="accept" %} selected {% endif %}>قبول
+                    </select>
+                    <input type="submit" value="تغییر">
+                    
+                </form>
+            </div>
+
+            <div class="request-item">
+                <span>عکس ها :</span>
+                {% for image in request.request_images %}
+                <img src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
+                {% endfor %}
+            </div>
+
         </div>
 
-        <div class="request-item">
-            <span>🛠 سرویس</span>
-            <p>{{ request.service.title }}</p>
-        </div>
+        {% endfor %}
 
-        <div class="request-item">
-            <span>📌 وضعیت</span>
-            <form action="{{ url_for('admin.select_request', id=request.id) }}" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <select name="status">
-                    <option class="option-1" value="pending" {% if request.status=="pending" %} selected {% endif %}>در انتظار بررسی
-                    <option class="option-2" value="reject" {% if request.status=="reject" %} selected {% endif %}>رد
-                    <option class="option-3" value="accept" {% if request.status=="accept" %} selected {% endif %}>قبول
-                </select>
-                <input type="submit" value="تغییر">
-                
-            </form>
-        </div>
+        {% else %}
 
-        <div class="request-item">
-            <span>عکس ها :</span>
-            {% for image in request.request_images %}
-            <img src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
-            {% endfor %}
-        </div>
-
-    </div>
-
-    {% endfor %}
+            <div class="empty-box">
+                هیچ درخواستی وجود ندارد .
+            </div>
+    {% endif %}
 
 </section>
 

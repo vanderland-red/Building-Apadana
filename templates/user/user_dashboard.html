@@ -33,10 +33,10 @@
                 {% if service.status == "pending" %}
                     <p class="status pending">🟡 در حال بررسی</p>
 
-                {% elif service.status == "accepted" %}
+                {% elif service.status == "accept" %}
                     <p class="status accepted">🟢 تأیید شده</p>
 
-                {% elif service.status == "rejected" %}
+                {% elif service.status == "reject" %}
                     <p class="status rejected">🔴 رد شده</p>
                 {% endif %}
             </div>

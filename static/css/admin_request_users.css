@@ -215,3 +215,8 @@ body{
     }
 
 }
+.empty-box{
+    text-align: center;
+    font-size: 22px;
+    margin: 100px 0;
+}
