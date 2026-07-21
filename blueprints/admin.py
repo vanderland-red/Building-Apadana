@@ -113,6 +113,18 @@ def request_users ():
     return render_template("admin/admin_request_users.html", service_requests=service_requests)
 
 
+@bp.route("/admin/dashboard/request_user_append")
+def request_users_append ():
+    service_requests_accept = ServiceRequest.query.filter_by(status="accept").all() # سرویس های قبول شده
+    service_requests_reject = ServiceRequest.query.filter_by(status="reject").all() # سرویس های رد شده
+
+    return render_template("admin/admin_request_append.html",
+        service_requests_accept=service_requests_accept,
+        service_requests_reject=service_requests_reject
+        )
+
+
+
 
 @bp.route("/admin/dashboard/selected-request/<int:id>", methods=["POST"])
 def select_request (id):

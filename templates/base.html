@@ -32,7 +32,8 @@
     and request.endpoint != 'admin.login'
     and request.endpoint != 'admin.dashboard'
     and request.endpoint != 'admin.edit_service'
-    and request.endpoint != 'admin.requset_users' %}
+    and request.endpoint != 'admin.requset_users'
+    and request.endpoint != 'admin.request_users_append' %}
 
         {% block footer %}
             {% include "part/footer.html" %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ریکوست های ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_request_append.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/request_history.css') }}">
+
+<section class="history-parent">
+
+    <!-- درخواست های قبول شده -->
+    <div class="history-box">
+
+        <h2 class="accepted-title">✔ درخواست‌های قبول شده</h2>
+
+        {% if service_requests_accept %}
+
+            {% for request in service_requests_accept %}
+
+            <div class="history-card">
+
+                <div class="history-item">
+                    <span>👤 نام کاربر</span>
+                    <p>{{ request.user.fullname }}</p>
+                </div>
+
+                <div class="history-item">
+                    <span>📞 شماره تماس</span>
+                    <p>{{ request.user.phone }}</p>
+                </div>
+
+                <div class="history-status accepted">
+                    قبول شده
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-box">
+                هیچ درخواست قبولی وجود ندارد.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- درخواست های رد شده -->
+
+    <div class="history-box">
+
+        <h2 class="rejected-title">✖ درخواست‌های رد شده</h2>
+
+        {% if service_requests_reject %}
+
+            {% for request in service_requests_reject %}
+
+            <div class="history-card">
+
+                <div class="history-item">
+                    <span>👤 نام کاربر</span>
+                    <p>{{ request.user.fullname }}</p>
+                </div>
+
+                <div class="history-item">
+                    <span>📞 شماره تماس</span>
+                    <p>{{ request.user.phone }}</p>
+                </div>
+
+                <div class="history-status rejected">
+                    رد شده
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-box">
+                هیچ درخواست رد شده‌ای وجود ندارد.
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+    {% endblock %}
