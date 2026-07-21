@@ -7,7 +7,6 @@
 {% block body %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_request_append.css') }}">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/request_history.css') }}">
 
 <section class="history-parent">
 
@@ -32,6 +31,11 @@
                 <p>{{ request.user.phone }}</p>
             </div>
 
+            <div>
+                <span>توضیحات :</span>
+                <p>{{ request.description }}</p>
+            </div>
+
             <div class="request-item">
                 <span>عکس ها :</span>
                 {% for image in request.request_images %}
@@ -39,9 +43,17 @@
                 {% endfor %}
             </div>
 
+
             <div class="history-status accepted">
                 قبول شده
             </div>
+
+            <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="delete-btn" onclick="return confirm('آیا از حذف این سرویس مطمئن هستید ؟')">
+                    حذف
+                </button>
+            </form>
 
         </div>
 
@@ -83,6 +95,12 @@
             <div class="history-status rejected">
                 رد شده
             </div>
+
+            <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="delete-btn">
+                    حذف
+                </button>
 
         </div>
 

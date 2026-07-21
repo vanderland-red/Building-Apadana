@@ -4,13 +4,11 @@ body{
     margin-top:150px;
     direction:rtl;
     font-family:Vazirmatn,sans-serif;
-    background:
-    linear-gradient(180deg,#edf4ff,#f8fbff);
+    background:#f3f7fc;
 }
 
-
 /*==========================
-      دو ستون اصلی
+      باکس اصلی
 ==========================*/
 
 .history-parent{
@@ -25,22 +23,22 @@ body{
 
 }
 
-
 /*==========================
-       باکس اصلی
+        ستون ها
 ==========================*/
 
 .history-box{
 
-    background:#3025ac;
+    background:#0231a9;
+
     border-radius:22px;
+
     overflow:hidden;
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
+    0 15px 40px rgba(15,23,42,.08);
 
 }
-
 
 /*==========================
         عنوان
@@ -49,10 +47,15 @@ body{
 .history-box h2{
 
     margin:0;
+
     padding:20px;
-    color:white;
+
     text-align:center;
+
+    color:white;
+
     font-size:24px;
+
     font-weight:700;
 
 }
@@ -69,19 +72,19 @@ body{
 
 }
 
-
 /*==========================
-      کارت درخواست
+         کارت
 ==========================*/
 
 .history-card{
 
-    margin:20px;
+    margin:22px;
+
     padding:22px;
 
     border-radius:18px;
 
-    background:white;
+    background:#fafcff;
 
     border:1px solid #e5e7eb;
 
@@ -91,82 +94,94 @@ body{
 
 .history-card:hover{
 
+    transform:translateY(-6px);
+
     box-shadow:
-    0 15px 35px rgba(37,99,235,.15);
+    0 18px 35px rgba(37,99,235,.15);
 
 }
 
-
 /*==========================
-      اطلاعات
+        اطلاعات
 ==========================*/
 
-.history-item{
+.history-item,
+.history-card > div:not(.history-status){
 
     margin-bottom:18px;
 
 }
 
-.history-item span{
+.history-item span,
+.history-card > div span{
 
     display:block;
+
+    margin-bottom:7px;
+
     color:#64748b;
+
     font-size:13px;
-    margin-bottom:6px;
+
     font-weight:700;
 
 }
 
-.history-item p{
+.history-item p,
+.history-card > div p{
 
     margin:0;
-    color:#111827;
-    font-size:18px;
-    font-weight:700;
+
+    color:#0f172a;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    font-weight:600;
+
+    overflow-wrap:break-word;
 
 }
 
-
 /*==========================
-       تصاویر
+        تصاویر
 ==========================*/
 
 .request-item{
 
-    margin-top:20px;
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
 
 }
 
 .request-item span{
 
-    display:block;
-    margin-bottom:12px;
-    color:#64748b;
-    font-size:13px;
-    font-weight:700;
+    width:100%;
 
 }
 
 .request-item img{
 
     width:90px;
+
     height:90px;
 
     object-fit:cover;
 
     border-radius:14px;
 
-    margin-left:10px;
-    margin-bottom:10px;
-
     border:3px solid white;
 
     box-shadow:
     0 8px 20px rgba(0,0,0,.12);
 
-    transition:.35s;
-
     cursor:pointer;
+
+    transition:.3s;
 
 }
 
@@ -175,35 +190,38 @@ body{
     transform:scale(1.08);
 
     box-shadow:
-    0 12px 28px rgba(37,99,235,.35);
+    0 12px 28px rgba(37,99,235,.30);
 
 }
 
-
 /*==========================
-        وضعیت
+         وضعیت
 ==========================*/
 
 .history-status{
 
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
-    margin-top:18px;
-
-    padding:9px 20px;
+    padding:8px 18px;
 
     border-radius:50px;
 
     font-size:14px;
+
     font-weight:700;
+
+    margin-bottom:20px;
 
 }
 
 .accepted{
 
     background:#dcfce7;
+
     color:#15803d;
 
 }
@@ -211,29 +229,74 @@ body{
 .rejected{
 
     background:#fee2e2;
+
     color:#dc2626;
 
 }
 
+/*==========================
+        فرم حذف
+==========================*/
+
+.history-card form{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.delete-btn{
+
+    border:none;
+
+    padding:11px 26px;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 25px rgba(220,38,38,.35);
+
+}
 
 /*==========================
-      حالت خالی
+      پیام خالی
 ==========================*/
 
 .empty-box{
 
-    padding:45px 20px;
+    padding:55px 20px;
+
     text-align:center;
 
     color:#94a3b8;
 
-    font-size:17px;
+    font-size:19px;
 
 }
 
-
 /*==========================
-      موبایل
+        موبایل
 ==========================*/
 
 @media(max-width:768px){
@@ -248,12 +311,27 @@ body{
 
         margin:15px;
 
+        padding:18px;
+
     }
 
     .request-item img{
 
         width:75px;
+
         height:75px;
+
+    }
+
+    .history-card form{
+
+        justify-content:center;
+
+    }
+
+    .delete-btn{
+
+        width:100%;
 
     }
 
