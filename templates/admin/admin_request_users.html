@@ -25,7 +25,7 @@
 
         <div class="request-item">
             <span>📌 وضعیت</span>
-            <form action="#">
+            <form action="{{ url_for('admin.select_request', id=request.id) }}" method="POST">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <select name="status">
                     <option class="option-1" value="pending" {% if request.status=="pending" %} selected {% endif %}>در انتظار بررسی

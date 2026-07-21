@@ -107,8 +107,25 @@ def edit_service(id):
 
 
 @bp.route("/admin/dashboard/request_user")
-def requset_users ():
-    service_requests = ServiceRequest.query.filter_by(status="pending").all()
+def request_users ():
+    service_requests = ServiceRequest.query.filter_by(status="pending").all() # سرویس های در انتظار بررسی
 
     return render_template("admin/admin_request_users.html", service_requests=service_requests)
 
+
+
+@bp.route("/admin/dashboard/selected-request/<int:id>", methods=["POST"])
+def select_request (id):
+    
+    request_id = ServiceRequest.query.get_or_404(id)
+
+    if request.method == "POST" :
+        status = request.form["status"]
+
+        if status in ["accept" , "reject"] :
+            request_id.status = status
+            db.session.commit()
+
+        return redirect(url_for("admin.request_users"))
+
+    return redirect(url_for("admin.request_users"))

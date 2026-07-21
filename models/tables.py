@@ -67,6 +67,13 @@ class ServiceRequest(db.Model):
         cascade="all, delete-orphan"
     )
 
+    def status_farsi(self) :
+        if self.status == "reject" :
+            return "رد شده"
+        
+        if self.status == "accept" :
+            return "قبول"
+
 
 
 class RequestImage(db.Model):
