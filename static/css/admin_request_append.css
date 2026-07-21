@@ -4,77 +4,106 @@ body{
     margin-top:150px;
     direction:rtl;
     font-family:Vazirmatn,sans-serif;
-    background:#eef4fb;
+    background:
+    linear-gradient(180deg,#edf4ff,#f8fbff);
 }
+
+
+/*==========================
+      دو ستون اصلی
+==========================*/
 
 .history-parent{
 
     width:92%;
-    max-width:1400px;
+    max-width:1450px;
     margin:auto;
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(500px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(520px,1fr));
     gap:35px;
 
 }
 
+
+/*==========================
+       باکس اصلی
+==========================*/
+
 .history-box{
 
-    background:white;
+    background:#3025ac;
     border-radius:22px;
-    padding:25px;
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
 
 }
 
+
+/*==========================
+        عنوان
+==========================*/
+
 .history-box h2{
 
-    margin-top:0;
-    margin-bottom:25px;
+    margin:0;
+    padding:20px;
+    color:white;
     text-align:center;
     font-size:24px;
+    font-weight:700;
 
 }
 
 .accepted-title{
 
-    color:#15803d;
+    background:linear-gradient(135deg,#16a34a,#22c55e);
 
 }
 
 .rejected-title{
 
-    color:#dc2626;
+    background:linear-gradient(135deg,#dc2626,#ef4444);
 
 }
 
+
+/*==========================
+      کارت درخواست
+==========================*/
+
 .history-card{
 
-    background:#f8fafc;
+    margin:20px;
+    padding:22px;
+
     border-radius:18px;
-    padding:18px;
-    margin-bottom:18px;
-    border-right:5px solid #2563eb;
-    transition:.3s;
+
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    transition:.35s;
 
 }
 
 .history-card:hover{
 
-    box-shadow:0 10px 25px rgba(37,99,235,.15);
+    box-shadow:
+    0 15px 35px rgba(37,99,235,.15);
 
 }
+
+
+/*==========================
+      اطلاعات
+==========================*/
 
 .history-item{
 
-    margin-bottom:15px;
-
-}
-
-.history-item:last-child{
-
-    margin-bottom:0;
+    margin-bottom:18px;
 
 }
 
@@ -83,7 +112,7 @@ body{
     display:block;
     color:#64748b;
     font-size:13px;
-    margin-bottom:5px;
+    margin-bottom:6px;
     font-weight:700;
 
 }
@@ -91,18 +120,82 @@ body{
 .history-item p{
 
     margin:0;
+    color:#111827;
     font-size:18px;
-    color:#0f172a;
     font-weight:700;
 
 }
 
+
+/*==========================
+       تصاویر
+==========================*/
+
+.request-item{
+
+    margin-top:20px;
+
+}
+
+.request-item span{
+
+    display:block;
+    margin-bottom:12px;
+    color:#64748b;
+    font-size:13px;
+    font-weight:700;
+
+}
+
+.request-item img{
+
+    width:90px;
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    margin-left:10px;
+    margin-bottom:10px;
+
+    border:3px solid white;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.request-item img:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 12px 28px rgba(37,99,235,.35);
+
+}
+
+
+/*==========================
+        وضعیت
+==========================*/
+
 .history-status{
 
-    display:inline-block;
-    margin-top:8px;
-    padding:8px 18px;
-    border-radius:30px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:18px;
+
+    padding:9px 20px;
+
+    border-radius:50px;
+
     font-size:14px;
     font-weight:700;
 
@@ -122,20 +215,45 @@ body{
 
 }
 
+
+/*==========================
+      حالت خالی
+==========================*/
+
 .empty-box{
 
+    padding:45px 20px;
     text-align:center;
-    padding:35px;
+
     color:#94a3b8;
+
     font-size:17px;
 
 }
+
+
+/*==========================
+      موبایل
+==========================*/
 
 @media(max-width:768px){
 
     .history-parent{
 
         grid-template-columns:1fr;
+
+    }
+
+    .history-card{
+
+        margin:15px;
+
+    }
+
+    .request-item img{
+
+        width:75px;
+        height:75px;
 
     }
 

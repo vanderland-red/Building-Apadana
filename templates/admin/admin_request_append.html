@@ -18,33 +18,40 @@
 
         {% if service_requests_accept %}
 
-            {% for request in service_requests_accept %}
+        {% for request in service_requests_accept %}
 
-            <div class="history-card">
+        <div class="history-card">
 
-                <div class="history-item">
-                    <span>👤 نام کاربر</span>
-                    <p>{{ request.user.fullname }}</p>
-                </div>
-
-                <div class="history-item">
-                    <span>📞 شماره تماس</span>
-                    <p>{{ request.user.phone }}</p>
-                </div>
-
-                <div class="history-status accepted">
-                    قبول شده
-                </div>
-
+            <div class="history-item">
+                <span>👤 نام کاربر</span>
+                <p>{{ request.user.fullname }}</p>
             </div>
 
-            {% endfor %}
+            <div class="history-item">
+                <span>📞 شماره تماس</span>
+                <p>{{ request.user.phone }}</p>
+            </div>
+
+            <div class="request-item">
+                <span>عکس ها :</span>
+                {% for image in request.request_images %}
+                <img src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
+                {% endfor %}
+            </div>
+
+            <div class="history-status accepted">
+                قبول شده
+            </div>
+
+        </div>
+
+        {% endfor %}
 
         {% else %}
 
-            <div class="empty-box">
-                هیچ درخواست قبولی وجود ندارد.
-            </div>
+        <div class="empty-box">
+            هیچ درخواست قبولی وجود ندارد.
+        </div>
 
         {% endif %}
 
@@ -59,33 +66,33 @@
 
         {% if service_requests_reject %}
 
-            {% for request in service_requests_reject %}
+        {% for request in service_requests_reject %}
 
-            <div class="history-card">
+        <div class="history-card">
 
-                <div class="history-item">
-                    <span>👤 نام کاربر</span>
-                    <p>{{ request.user.fullname }}</p>
-                </div>
-
-                <div class="history-item">
-                    <span>📞 شماره تماس</span>
-                    <p>{{ request.user.phone }}</p>
-                </div>
-
-                <div class="history-status rejected">
-                    رد شده
-                </div>
-
+            <div class="history-item">
+                <span>👤 نام کاربر</span>
+                <p>{{ request.user.fullname }}</p>
             </div>
 
-            {% endfor %}
+            <div class="history-item">
+                <span>📞 شماره تماس</span>
+                <p>{{ request.user.phone }}</p>
+            </div>
+
+            <div class="history-status rejected">
+                رد شده
+            </div>
+
+        </div>
+
+        {% endfor %}
 
         {% else %}
 
-            <div class="empty-box">
-                هیچ درخواست رد شده‌ای وجود ندارد.
-            </div>
+        <div class="empty-box">
+            هیچ درخواست رد شده‌ای وجود ندارد.
+        </div>
 
         {% endif %}
 
@@ -95,4 +102,4 @@
 
 
 
-    {% endblock %}
+{% endblock %}

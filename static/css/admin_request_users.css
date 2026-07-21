@@ -4,219 +4,315 @@ body{
     margin-top:150px;
     font-family:Vazirmatn,sans-serif;
     direction:rtl;
-    background:
-    radial-gradient(circle at top right,#dbeafe 0%,transparent 35%),
-    radial-gradient(circle at bottom left,#bfdbfe 0%,transparent 30%),
-    #eef4fb;
+    background:#f3f6fb;
 }
 
-
-/*==========================
-        لیست کارت ها
-==========================*/
+/*=========================
+      لیست درخواست ها
+=========================*/
 
 .request-users-parent{
+
     width:92%;
-    max-width:1400px;
+    max-width:1450px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(430px,1fr));
+    gap:28px;
+
 }
-
-
-/*==========================
-          کارت
-==========================*/
-
-.request-card{
-    position:relative;
-    background:rgba(255,255,255,.85);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.7);
-    border-radius:24px;
-    padding:28px;
-    overflow:hidden;
-    box-shadow:
-    0 12px 35px rgba(30,64,175,.12),
-    inset 0 1px 0 rgba(255,255,255,.8);
-    transition:.4s;
-}
-
-.request-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-    width:100%;
-    height:6px;
-    background:linear-gradient(90deg,#2563eb,#3b82f6,#60a5fa);
-}
-
-.request-card:hover{
-    transform:translateY(-10px);
-    box-shadow:
-    0 25px 50px rgba(37,99,235,.18);
-}
-
-
-/*==========================
-       آیتم اطلاعات
-==========================*/
-
-.request-item{
-    padding:16px 0;
-    border-bottom:1px solid #edf2f7;
-}
-
-.request-item:last-child{
-    border:none;
-}
-
-.request-item span{
-    display:block;
-    color:#64748b;
-    font-size:13px;
-    margin-bottom:8px;
-    font-weight:600;
-    letter-spacing:.5px;
-}
-
 .request-item p{
     margin:0;
     color:#0f172a;
     font-size:18px;
     font-weight:600;
+    line-height:1.8;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 
-/*==========================
-         فرم وضعیت
-==========================*/
+/*=========================
+          کارت
+=========================*/
+
+.request-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.07);
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+.request-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 18px 40px rgba(37,99,235,.14);
+
+}
+
+.request-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+    left:18px;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#3b82f6;
+
+}
+
+
+/*=========================
+      اطلاعات
+=========================*/
+
+.request-item{
+
+    padding:15px 0;
+
+    border-bottom:1px dashed #dbe4ef;
+
+}
+
+.request-item:last-child{
+
+    border:none;
+
+}
+
+.request-item span{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#64748b;
+
+    margin-bottom:6px;
+
+    font-weight:700;
+
+}
+
+.request-item p{
+
+    margin:0;
+
+    color:#0f172a;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    line-height:1.8;
+
+}
+
+
+/*=========================
+       وضعیت
+=========================*/
 
 .request-item form{
+
     display:flex;
-    gap:10px;
+
+    gap:12px;
+
     align-items:center;
-    flex-wrap:wrap;
+
 }
 
 .request-item select{
-    width:150px;     
-    padding:10px 12px;
-    border:none;
-    border-radius:12px;
-    background:#f8fafc;
+
+    flex:1;
+
+    height:44px;
+
+    border:1px solid #dbe4ef;
+
+    border-radius:10px;
+
+    padding:0 14px;
+
+    background:white;
+
     font-family:inherit;
+
     font-size:15px;
-    color:#1e293b;
-    box-shadow:inset 0 0 0 2px #dbeafe;
+
     transition:.3s;
+
 }
 
 .request-item select:focus{
+
     outline:none;
-    box-shadow:inset 0 0 0 2px #2563eb;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
 }
 
 .request-item input[type="submit"]{
+
+    height:44px;
+
+    padding:0 22px;
+
     border:none;
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    border-radius:10px;
+
+    background:#2563eb;
+
     color:white;
-    padding:11px 22px;
-    border-radius:12px;
+
     font-family:inherit;
+
     font-size:14px;
-    font-weight:600;
+
+    font-weight:700;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .request-item input[type="submit"]:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
+    background:#1d4ed8;
+
 }
 
 
-/*==========================
-          تصاویر
-==========================*/
+/*=========================
+        تصاویر
+=========================*/
 
 .request-item:last-child{
+
     display:flex;
+
     flex-wrap:wrap;
-    gap:12px;
+
+    gap:10px;
+
 }
 
 .request-item:last-child span{
+
     width:100%;
+
 }
 
 .request-item img{
-    width:95px;
-    height:95px;
+
+    width:90px;
+
+    height:90px;
+
     object-fit:cover;
-    border-radius:16px;
-    border:4px solid white;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-    transition:.35s;
+
+    border-radius:14px;
+
+    border:2px solid #e2e8f0;
+
+    transition:.3s;
+
     cursor:pointer;
+
 }
 
 .request-item img:hover{
-    transform:scale(1.12) rotate(2deg);
-    box-shadow:0 15px 30px rgba(37,99,235,.35);
+
+    transform:scale(1.08);
+
+    border-color:#2563eb;
+
 }
 
 
-/*==========================
-       رنگ option ها
-==========================*/
+/*=========================
+       پیام خالی
+=========================*/
 
-.option-1{
-    background:#fef9c3;
+.empty-box{
+
+    grid-column:1/-1;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:22px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+
 }
 
-.option-2{
-    background:#fee2e2;
-}
 
-.option-3{
-    background:#dcfce7;
-}
-
-
-/*==========================
-          موبایل
-==========================*/
+/*=========================
+        موبایل
+=========================*/
 
 @media(max-width:768px){
 
     .request-users-parent{
-        grid-template-columns:1fr;
-    }
 
-    .request-card{
-        padding:20px;
+        grid-template-columns:1fr;
+
     }
 
     .request-item form{
+
         flex-direction:column;
-        align-items:stretch;
+
     }
 
+    .request-item select,
     .request-item input[type="submit"]{
+
         width:100%;
+
     }
 
     .request-item img{
-        width:80px;
-        height:80px;
+
+        width:75px;
+        height:75px;
+
     }
 
-}
-.empty-box{
-    text-align: center;
-    font-size: 22px;
-    margin: 100px 0;
 }
