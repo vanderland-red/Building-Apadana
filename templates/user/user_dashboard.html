@@ -16,28 +16,36 @@
 
     <div class="user-parent-inside">
 
-            <div>
-                {{ service.service.title }}
-            </div>
+        <div>
+            {{ service.service.title }}
+        </div>
 
-            <div>
-                <strong>آدرس:</strong>
-                {{ service.address }}
-            </div>
+        <div>
+            <strong>آدرس:</strong>
+            {{ service.address }}
+        </div>
 
-            <div class="status-parent">
-                <strong>وضعیت:</strong>
+        <div class="images-parent">
+            <strong>عکس ها :</strong>
 
-                {% if service.status == "pending" %}
-                    <p class="status pending">🟡 در حال بررسی</p>
+            {% for image in service.request_images %}
+            <img class="preview" src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
+            {% endfor %}
+        </div>
 
-                {% elif service.status == "accept" %}
-                    <p class="status accepted">🟢 تأیید شده</p>
+        <div class="status-parent">
+            <strong>وضعیت:</strong>
 
-                {% elif service.status == "reject" %}
-                    <p class="status rejected">🔴 رد شده</p>
-                {% endif %}
-            </div>
+            {% if service.status == "pending" %}
+            <p class="status pending">🟡 در حال بررسی</p>
+
+            {% elif service.status == "accept" %}
+            <p class="status accepted">🟢 تأیید شده</p>
+
+            {% elif service.status == "reject" %}
+            <p class="status rejected">🔴 رد شده</p>
+            {% endif %}
+        </div>
 
 
         {% if service.status == "pending" %}
@@ -56,5 +64,15 @@
 </section>
 
 <a class="logout-btn" href="{{ url_for('user.logout') }}">خروج از حساب</a>
+
+<script>
+    const images = document.querySelectorAll(".preview");
+
+    images.forEach(img => {
+        img.onclick = function () {
+            window.open(this.src, "_blank");
+        }
+    });
+</script>
 
 {% endblock %}
