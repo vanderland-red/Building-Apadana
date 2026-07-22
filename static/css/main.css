@@ -164,7 +164,16 @@ td{
     transform: translateY(0);
 }
 
-.img-slide{
+.img-slide-1{
+    transition: 0.8s ease-in-out;
+    opacity: 1;
+}
+.img-slide-2{
+    transition: 0.8s ease-in-out;
+    opacity: 1;
+}
+
+.img-slide-3{
     transition: 0.8s ease-in-out;
     opacity: 1;
 }

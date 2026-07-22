@@ -139,10 +139,9 @@
     <h3>برخی از مشتریان ما</h3>
     <div class="images-parent">
 
-        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic1.png') }}">
-        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic2.png') }}">
-        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic3.png') }}">
-        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic4.png') }}">
+        <img class="img-slide-1" src="{{ url_for('static', filename='main_image_2/pic1.png') }}">
+        <img class="img-slide-2" src="{{ url_for('static', filename='main_image_2/pic2.png') }}">
+        <img class="img-slide-3" src="{{ url_for('static', filename='main_image_2/pic3.png') }}">
     </div>
 
 </section>
@@ -203,28 +202,41 @@
 
 
 
+
+
+<!-- بخش نشون دادن تصاویر همراه با اوپسیتی-->
+<!-- برای اینکه تصاویر در هر ستون تکراری نباشن آن ها را به 3 ستون تقسیم کردم-->
+
 <script>
-    const images_move = [
+    
+    const images_move_1 = [
         "{{ url_for('static', filename='main_image_2/pic1.png') }}",
         "{{ url_for('static', filename='main_image_2/pic2.png') }}",
         "{{ url_for('static', filename='main_image_2/pic3.png') }}",
-        "{{ url_for('static', filename='main_image_2/pic4.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic4.png') }}"
+    ];
+
+    const images_move_2 = [
         "{{ url_for('static', filename='main_image_2/pic5.png') }}",
         "{{ url_for('static', filename='main_image_2/pic6.png') }}",
         "{{ url_for('static', filename='main_image_2/pic7.png') }}",
-        "{{ url_for('static', filename='main_image_2/pic8.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic8.png') }}"
+    ]
+
+    const images_move_3 = [
         "{{ url_for('static', filename='main_image_2/pic9.png') }}",
         "{{ url_for('static', filename='main_image_2/pic10.png') }}",
         "{{ url_for('static', filename='main_image_2/pic11.png') }}",
         "{{ url_for('static', filename='main_image_2/pic12.png') }}"
     ];
 
-    const allSlides = document.querySelectorAll(".img-slide");
 
-    allSlides.forEach((slide, startPosition) => {
+    const Slide_1 = document.querySelectorAll(".img-slide-1");
+
+        Slide_1.forEach((slide, startPosition) => {
         let Index = startPosition; 
 
-        slide.src = images_move[Index];
+        slide.src = images_move_1[Index];
 
         setInterval(() => {
 
@@ -232,10 +244,54 @@
 
             setTimeout(()=> {
 
-                Index = (Index + 1) % images_move.length;
-                slide.src = images_move[Index];
+                Index = (Index + 1) % images_move_1.length;
+                slide.src = images_move_1[Index];
                 slide.style.opacity = 1
             }, 800)
         }, 5000);
     });
+
+
+    const Slide_2 = document.querySelectorAll(".img-slide-2");
+
+        Slide_2.forEach((slide, startPosition) => {
+        let Index = startPosition; 
+
+        slide.src = images_move_2[Index];
+
+        setInterval(() => {
+
+            slide.style.opacity = 0;
+
+            setTimeout(()=> {
+
+                Index = (Index + 1) % images_move_2.length;
+                slide.src = images_move_2[Index];
+                slide.style.opacity = 1
+            }, 800)
+        }, 5000);
+    });
+
+
+    const Slide_3 = document.querySelectorAll(".img-slide-3");
+
+        Slide_3.forEach((slide, startPosition) => {
+        let Index = startPosition; 
+
+        slide.src = images_move_3[Index];
+
+        setInterval(() => {
+
+            slide.style.opacity = 0;
+
+            setTimeout(()=> {
+
+                Index = (Index + 1) % images_move_3.length;
+                slide.src = images_move_3[Index];
+                slide.style.opacity = 1
+            }, 800)
+        }, 5000);
+    });
+
+
 </script>
