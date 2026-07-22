@@ -24,16 +24,17 @@
             </table>
 
             <div class="images-parent">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
             </div>
 
         </div>
 
     </section>
+
 
 </section>
 
@@ -67,11 +68,11 @@
             </table>
 
             <div class="images-parent">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
             </div>
 
         </div>
@@ -110,16 +111,17 @@
             </table>
 
             <div class="images-parent">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
-                <img src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-1.png') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-2.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-3.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-4.jpg') }}" alt="mirjaveh">
+                <img class="preview" src="{{ url_for('static', filename='main_image/mirjaveh-5.png') }}" alt="mirjaveh">
             </div>
 
         </div>
 
     </section>
+
 
 </section>
 
@@ -127,6 +129,26 @@
     <button onclick="next()" id="next_page">بعدی</button>
     <button onclick="back()" id="back-page">قبلی</button>
 </div>
+
+
+
+
+
+
+<section class="main_2_parent">
+    <h3>برخی از مشتریان ما</h3>
+    <div class="images-parent">
+
+        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic1.png') }}">
+        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic2.png') }}">
+        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic3.png') }}">
+        <img class="img-slide" src="{{ url_for('static', filename='main_image_2/pic4.png') }}">
+    </div>
+
+</section>
+
+
+
 
 
 
@@ -163,4 +185,57 @@
         showPage();
     }
 
+</script>
+
+
+
+<!-- کلیک روی تصاویر برای بزرگ شدن-->
+<script>
+    const images = document.querySelectorAll(".preview");
+
+    images.forEach(img => {
+        img.onclick = function () {
+            window.open(this.src, "_blank");
+        }
+    });
+</script>
+
+
+
+
+<script>
+    const images_move = [
+        "{{ url_for('static', filename='main_image_2/pic1.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic2.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic3.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic4.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic5.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic6.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic7.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic8.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic9.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic10.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic11.png') }}",
+        "{{ url_for('static', filename='main_image_2/pic12.png') }}"
+    ];
+
+    const allSlides = document.querySelectorAll(".img-slide");
+
+    allSlides.forEach((slide, startPosition) => {
+        let Index = startPosition; 
+
+        slide.src = images_move[Index];
+
+        setInterval(() => {
+
+            slide.style.opacity = 0;
+
+            setTimeout(()=> {
+
+                Index = (Index + 1) % images_move.length;
+                slide.src = images_move[Index];
+                slide.style.opacity = 1
+            }, 800)
+        }, 5000);
+    });
 </script>

@@ -34,7 +34,7 @@
             <div class="request-item">
                 <span>عکس ها :</span>
                 {% for image in request.request_images %}
-                <img src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
+                <img class="preview" src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
                 {% endfor %}
             </div>
 
@@ -65,6 +65,16 @@
     {% endif %}
 
 </section>
+
+<script>
+    const images = document.querySelectorAll(".preview");
+
+    images.forEach(img => {
+        img.onclick = function () {
+            window.open(this.src, "_blank");
+        }
+    });
+</script>
 
 
 

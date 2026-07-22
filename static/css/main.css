@@ -141,3 +141,30 @@ td{
     }
 
 }
+
+.main_2_parent img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    transition: 0.8s ease-in-out;
+}
+.main_2_parent h3{
+    text-align: center;
+    font-size: 27px;
+    color: rgb(14, 14, 152);
+}
+.images-parent{
+    margin: auto;
+}
+.main_2_parent img:hover{
+    cursor: default;
+    transform: translateY(0);
+}
+
+.img-slide{
+    transition: 0.8s ease-in-out;
+    opacity: 1;
+}

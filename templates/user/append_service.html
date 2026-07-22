@@ -12,12 +12,16 @@
 
 
     <section class="form-service">
-        <h3> سرویس  <span>{{ service.title }}</span></h3>
+        <h3> سرویس <span>{{ service.title }}</span></h3>
         <form action="{{ url_for('user.append_service', id=service.id) }}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="text" name="address" placeholder="آدرس محل پروژه" required><br>
             <textarea name="description" placeholder="توضیحات درخواست (اختیاری)"></textarea><br>
-            <p>لطفا عکس های مربوط به مکان مورد نظر رو بفرستید :</p>
+            <p>
+                لطفاً تصاویر مربوط به محل موردنظر را بارگذاری کنید.
+                برای انتخاب چند تصویر به‌صورت هم‌زمان، در کامپیوتر کلید <strong>Ctrl</strong> را نگه دارید و روی تصاویر
+                موردنظر کلیک کنید.
+            </p>
             <input type="file" name="images" multiple accept="image/*">
             <input type="submit" value="ثبت درخواست">
         </form>

@@ -11,113 +11,180 @@
 <section class="history-parent">
 
     <!-- درخواست های قبول شده -->
-    <div class="history-box">
+    <section class="history-box accepted-box">
 
-        <h2 class="accepted-title">✔ درخواست‌های قبول شده</h2>
+        <div class="history-header accepted-header">
+            <h2>✔ درخواست‌های قبول شده</h2>
+        </div>
 
-        {% if service_requests_accept %}
+        <div class="history-body">
 
-        {% for request in service_requests_accept %}
+            {% if service_requests_accept %}
 
-        <div class="history-card">
+            {% for request in service_requests_accept %}
 
-            <div class="history-item">
-                <span>👤 نام کاربر</span>
-                <p>{{ request.user.fullname }}</p>
+            <article class="history-card">
+
+                <div class="card-info">
+
+                    <div class="info-row">
+                        <span>👤 نام کاربر</span>
+                        <p>{{ request.user.fullname }}</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>📞 شماره تماس</span>
+                        <p>{{ request.user.phone }}</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>📝 توضیحات</span>
+                        <p>{{ request.description }}</p>
+                    </div>
+
+                </div>
+
+                <div class="image-section">
+
+                    <h4>📷 تصاویر</h4>
+
+                    <div class="image-grid">
+
+                        {% for image in request.request_images %}
+
+                        <img class="preview" src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <span class="history-status accepted">
+                        قبول شده
+                    </span>
+
+                    <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
+
+                        <input type="hidden"
+                               name="csrf_token"
+                               value="{{ csrf_token() }}">
+
+                        <button
+                            class="delete-btn"
+                            onclick="return confirm('آیا از حذف این درخواست مطمئن هستید؟')">
+
+                            حذف
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+            {% else %}
+
+            <div class="empty-box">
+
+                هیچ درخواست قبولی وجود ندارد.
+
             </div>
 
-            <div class="history-item">
-                <span>📞 شماره تماس</span>
-                <p>{{ request.user.phone }}</p>
-            </div>
-
-            <div>
-                <span>توضیحات :</span>
-                <p>{{ request.description }}</p>
-            </div>
-
-            <div class="request-item">
-                <span>عکس ها :</span>
-                {% for image in request.request_images %}
-                <img src="{{ url_for('static', filename='u_r_cover/' ~ image.image_path) }}">
-                {% endfor %}
-            </div>
-
-
-            <div class="history-status accepted">
-                قبول شده
-            </div>
-
-            <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit" class="delete-btn" onclick="return confirm('آیا از حذف این سرویس مطمئن هستید ؟')">
-                    حذف
-                </button>
-            </form>
+            {% endif %}
 
         </div>
 
-        {% endfor %}
+    </section>
 
-        {% else %}
-
-        <div class="empty-box">
-            هیچ درخواست قبولی وجود ندارد.
-        </div>
-
-        {% endif %}
-
-    </div>
 
 
     <!-- درخواست های رد شده -->
 
-    <div class="history-box">
+    <section class="history-box rejected-box">
 
-        <h2 class="rejected-title">✖ درخواست‌های رد شده</h2>
+        <div class="history-header rejected-header">
+            <h2>✖ درخواست‌های رد شده</h2>
+        </div>
 
-        {% if service_requests_reject %}
+        <div class="history-body">
 
-        {% for request in service_requests_reject %}
+            {% if service_requests_reject %}
 
-        <div class="history-card">
+            {% for request in service_requests_reject %}
 
-            <div class="history-item">
-                <span>👤 نام کاربر</span>
-                <p>{{ request.user.fullname }}</p>
+            <article class="history-card">
+
+                <div class="card-info">
+
+                    <div class="info-row">
+                        <span>👤 نام کاربر</span>
+                        <p>{{ request.user.fullname }}</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span>📞 شماره تماس</span>
+                        <p>{{ request.user.phone }}</p>
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <span class="history-status rejected">
+                        رد شده
+                    </span>
+
+                    <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
+
+                        <input type="hidden"
+                               name="csrf_token"
+                               value="{{ csrf_token() }}">
+
+                        <button class="delete-btn">
+
+                            حذف
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+            {% else %}
+
+            <div class="empty-box">
+
+                هیچ درخواست رد شده‌ای وجود ندارد.
+
             </div>
 
-            <div class="history-item">
-                <span>📞 شماره تماس</span>
-                <p>{{ request.user.phone }}</p>
-            </div>
-
-            <div class="history-status rejected">
-                رد شده
-            </div>
-
-            <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit" class="delete-btn">
-                    حذف
-                </button>
+            {% endif %}
 
         </div>
 
-        {% endfor %}
-
-        {% else %}
-
-        <div class="empty-box">
-            هیچ درخواست رد شده‌ای وجود ندارد.
-        </div>
-
-        {% endif %}
-
-    </div>
+    </section>
 
 </section>
 
+<script>
+    const images = document.querySelectorAll(".preview");
+
+    images.forEach(img => {
+        img.onclick = function () {
+            window.open(this.src, "_blank");
+        }
+    });
+</script>
 
 
 {% endblock %}
