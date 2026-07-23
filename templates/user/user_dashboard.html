@@ -59,11 +59,18 @@
 
     </div>
 
-    {% endfor %}
+    {% endfor %}  
+    
+    <a href="{{ url_for('user.profile') }}">ویرایش اطلاعات</a>
+
 
 </section>
 
-<a class="logout-btn" href="{{ url_for('user.logout') }}">خروج از حساب</a>
+    <a class="logout-btn" href="{{ url_for('user.logout') }}"
+    onclick="return confirm('آیا مطمئن هستید از خروج از حساب خود ؟')">
+        خروج از حساب
+    </a>
+
 
 <script>
     const images = document.querySelectorAll(".preview");

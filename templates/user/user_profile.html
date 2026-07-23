@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+    صفحه ادمین
+{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_profile.css') }}">
+
+<section class="profile-parent">
+
+    <h3>ویرایش اطلاعات حساب</h3>
+
+    <form action="{{ url_for('user.profile') }}" method="POST">
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <div class="input-box">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" name="fullname" value="{{ current_user.fullname }}" required>
+        </div>
+
+        <div class="input-box">
+            <label>شماره موبایل</label>
+            <input type="text" name="phone" value="{{ current_user.phone }}" required>
+        </div>
+
+        <div class="input-box">
+            <label>ایمیل</label>
+            <input type="email" name="email" value="{{ current_user.email or '' }}">
+        </div>
+
+        <hr>
+
+        <h4>تغییر رمز عبور (اختیاری)</h4>
+
+        <div class="input-box">
+            <label>رمز عبور فعلی</label>
+            <input type="password" name="current_password">
+        </div>
+
+        <div class="input-box">
+            <label>رمز عبور جدید</label>
+            <input type="password" name="new_password">
+        </div>
+
+        <div class="input-box">
+            <label>تکرار رمز عبور جدید</label>
+            <input type="password" name="confirm_password">
+        </div>
+
+
+
+        <button type="submit">
+            ذخیره تغییرات
+        </button>
+
+    </form>
+
+</section>
+
+   
+{% endblock %}

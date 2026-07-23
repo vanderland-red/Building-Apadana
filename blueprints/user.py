@@ -200,7 +200,71 @@ def logout():
     logout_user()
     flash("با موفقیت از حساب کاربری خارج شدید", "success")
     return redirect(url_for("user.register"))
-    
+
+
+
+
+
+@bp.route("/user/dashboard/profile", methods=["GET", "POST"])
+@login_required
+def profile():
+
+    if request.method == "GET" :
+        return render_template("user/user_profile.html")
+
+    if request.method == "POST":
+
+        fullname = request.form.get("fullname")
+        phone = request.form.get("phone")
+        email = request.form.get("email")
+
+        current_password = request.form.get("current_password")
+        new_password = request.form.get("new_password")
+        confirm_password = request.form.get("confirm_password")
+
+        phone_exist = User.query.filter(
+            User.phone == phone,
+            User.id != current_user.id
+        ).first()
+
+        if phone_exist:
+            flash("این شماره موبایل قبلاً ثبت شده است.", "danger")
+            return redirect(url_for("user.profile"))
+
+        if email:
+
+            email_exist = User.query.filter(
+                User.email == email,
+                User.id != current_user.id
+            ).first()
+
+            if email_exist:
+                flash("این ایمیل قبلاً ثبت شده است.", "danger")
+                return redirect(url_for("user.profile"))
+
+        current_user.fullname = fullname
+        current_user.phone = phone
+        current_user.email = email
+
+        if current_password or new_password or confirm_password:
+
+            if not check_password_hash(current_user.password, current_password):
+                flash("رمز عبور فعلی اشتباه است.", "danger")
+                return redirect(url_for("user.profile"))
+
+            if new_password != confirm_password:
+                flash("رمز عبور جدید و تکرار آن یکسان نیست.", "danger")
+                return redirect(url_for("user.profile"))
+
+            current_user.password = generate_password_hash(new_password)
+
+        db.session.commit()
+
+        flash("اطلاعات با موفقیت بروزرسانی شد.", "success")
+
+        return redirect(url_for("user.profile"))
+
+    return redirect(url_for("user.profile"))
 
 
 
