@@ -274,6 +274,11 @@ def profile():
     return redirect(url_for("user.profile"))
 
 
+# نمایش محصولات موقع کلیک روی ثبت درخواست در دشبورد یوزر
+@bp.route("/user/dashboard/want-services")
+def want_services():
+    services = Service.query.all()
+    return render_template("user/user_want_services.html", services=services)
 
 
 

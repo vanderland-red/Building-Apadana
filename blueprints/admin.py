@@ -142,7 +142,7 @@ def select_request (id):
 
     return redirect(url_for("admin.request_users"))
 
-@bp.route("/user/dashboard/delete-service/<int:id>", methods=["POST"])
+@bp.route("/admin/dashboard/delete-service/<int:id>", methods=["POST"])
 def delete_service_this(id):
     
     if request.method == "POST" :

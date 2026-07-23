@@ -1,6 +1,7 @@
 from flask import Flask
 from config import *
 from flask_wtf import CSRFProtect
+from flask_wtf.csrf import CSRFError
 from extentions import db
 from blueprints.general import bp as general
 from blueprints.admin import bp as admin
@@ -30,6 +31,11 @@ login_manager.login_message_category = "warning"
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+@app.errorhandler(CSRFError)
+def handle_csrf_error(e):
+    print("CSRF ERROR:", e.description)
+    return f"CSRF ERROR: {e.description}", 400
 
 app.register_blueprint(general)
 app.register_blueprint(admin)

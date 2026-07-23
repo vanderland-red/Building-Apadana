@@ -8,10 +8,24 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
 
 
+
 <section class="user-parent">
+
+    <div class="dashboard-actions">
+
+        <a href="{{ url_for('user.profile') }}" class="action-btn">
+            ✏️ ویرایش اطلاعات
+        </a>
+
+        <a href="{{ url_for('user.want_services') }}" class="action-btn">
+            ➕ ثبت درخواست جدید
+        </a>
+
+    </div>
 
     <h2>صفحه کاربری <span>{{ current_user.fullname }}</span></h2>
 
+    {% if requests %}
     {% for service in requests %}
 
     <div class="user-parent-inside">
@@ -23,6 +37,11 @@
         <div>
             <strong>آدرس:</strong>
             {{ service.address }}
+        </div>
+
+        <div>
+            <strong>توضیحات :</strong>
+            {{ service.description }}
         </div>
 
         <div class="images-parent">
@@ -59,17 +78,27 @@
 
     </div>
 
-    {% endfor %}  
-    
-    <a href="{{ url_for('user.profile') }}">ویرایش اطلاعات</a>
+    {% endfor %}
 
 
 </section>
+{% else %}
 
-    <a class="logout-btn" href="{{ url_for('user.logout') }}"
+<div class="empty-box">
+
+    هیچ درخواست سرویسی وجود ندارد . 🙂
+
+</div>
+
+{% endif %}
+
+
+
+
+<a class="logout-btn" href="{{ url_for('user.logout') }}"
     onclick="return confirm('آیا مطمئن هستید از خروج از حساب خود ؟')">
-        خروج از حساب
-    </a>
+    خروج از حساب
+</a>
 
 
 <script>

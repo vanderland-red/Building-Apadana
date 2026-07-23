@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_want_services.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<section class="want-services-parent">
+    <h2>خدمات سایت ما</h2>
+    {% for service in services %}
+
+    <a href="{{ url_for('user.service', id=service.id) }}" class="service-link">
+        <div class="service-box">
+
+            <img src="{{ url_for('static', filename='cover/' ~ service.id ~ '.jpg') }}" alt="{{ service.title }}">
+
+            <h3>{{ service.title }}</h3>
+
+        </div>
+    </a>
+
+    {% endfor %}
+</section>
+
+{% endblock %}
