@@ -214,10 +214,12 @@ def profile():
 
     if request.method == "POST":
 
+        # بخش ویرایش اطلاعات کاربر
         fullname = request.form.get("fullname")
         phone = request.form.get("phone")
         email = request.form.get("email")
 
+        # بخش ویرایش رمز عبور کاربر
         current_password = request.form.get("current_password")
         new_password = request.form.get("new_password")
         confirm_password = request.form.get("confirm_password")
@@ -249,12 +251,17 @@ def profile():
         if current_password or new_password or confirm_password:
 
             if not check_password_hash(current_user.password, current_password):
-                flash("رمز عبور فعلی اشتباه است.", "danger")
+                flash("رمز عبور فعلی اشتباه است.", "error")
+                return redirect(url_for("user.profile"))
+
+            if len(new_password) < 5 or len(confirm_password) < 5:
+                flash("لطفا رمز عبور سخت‌تری را انتخاب کنید", "error")
                 return redirect(url_for("user.profile"))
 
             if new_password != confirm_password:
-                flash("رمز عبور جدید و تکرار آن یکسان نیست.", "danger")
+                flash("رمز عبور جدید و تکرار آن یکسان نیست.", "error")
                 return redirect(url_for("user.profile"))
+
 
             current_user.password = generate_password_hash(new_password)
 
