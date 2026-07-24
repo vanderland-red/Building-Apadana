@@ -178,7 +178,7 @@
 </script>
 
 <script>
-    
+
     const forms = document.querySelectorAll(".delete-form");
 
     forms.forEach(form => {
@@ -191,7 +191,7 @@
 
             fetch(form.action, {
                 method: "POST",
-                body: formData
+                body: formData // همه اطلاعات داخل فرم را میفرستد
             })
                 .then(response => {
 
