@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/another_pages.css') }}">
+
+<section class="projects-section">
+
+    <div class="projects-header">
+
+        <h2>پروژه‌های ما</h2>
+
+        <p>
+            شرکت مهندسین مشاور و ساخت آپادانا با بهره‌گیری از تجربه، دانش فنی و تیم متخصص،
+            پروژه‌های متعددی در زمینه طراحی، نظارت و اجرای ساختمان به انجام رسانده است.
+            در ادامه بخشی از نمونه‌کارهای ما را مشاهده می‌کنید.
+        </p>
+
+        <a class="resume-btn"
+           href="{{ url_for('static', filename='files/resume.pdf') }}"
+           download>
+
+            <img src="{{ url_for('static', filename='image/download-logo.png') }}">
+            دانلود رزومه شرکت
+
+        </a>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-1.png') }}">
+
+            <div class="project-content">
+
+                <h3>مجتمع مسکونی آفتاب</h3>
+
+                <span>مسکونی</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-2.png') }}">
+
+            <div class="project-content">
+
+                <h3>برج تجاری الماس</h3>
+
+                <span>تجاری</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-3.png') }}">
+
+            <div class="project-content">
+
+                <h3>مجتمع اداری سپهر</h3>
+
+                <span>اداری</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-4.png') }}">
+
+            <div class="project-content">
+
+                <h3>بازسازی هتل پارسیان</h3>
+
+                <span>بازسازی</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-5.png') }}">
+
+            <div class="project-content">
+
+                <h3>مرکز تجاری نگین شرق</h3>
+
+                <span>نگین</span>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-6.png') }}">
+
+            <div class="project-content">
+
+                <h3>کارخانه صنایع فلزی آریا</h3>
+
+                <span>صنایع فلزی</span>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-7.png') }}">
+
+            <div class="project-content">
+
+                <h3>کافه رستوران بلوط</h3>
+
+                <span>بلوط</span>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-8.png') }}">
+
+            <div class="project-content">
+
+                <h3>کلینیک تخصصی سلامت</h3>
+
+                <span>کلینیک</span>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-9.png') }}">
+
+            <div class="project-content">
+
+                <h3>مجتمع ویلایی سروستان</h3>
+
+                <span>سروستان</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/projeha-img-10.png') }}">
+
+            <div class="project-content">
+
+                <h3>هتل بوتیک رویال</h3>
+
+                <span>رویال</span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+{% endblock %}

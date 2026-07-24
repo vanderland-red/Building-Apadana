@@ -14,3 +14,7 @@ def home ():
 @bp.route("/about-apadana")
 def about ():
     return render_template("about.html")
+
+@bp.route("/projeha-apadana")
+def projeha ():
+    return render_template("user/another_page/projeha.html")
