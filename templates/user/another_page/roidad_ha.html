@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/another_pages.css') }}">
+
+<section class="projects-section">
+
+    <div class="projects-header">
+
+        <h2>رویدادها</h2>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/roidad-img-1.jpg') }}">
+
+            <div class="project-content">
+
+                <h3>نمایشگاه صنعت ساختمان</h3>
+
+                <span>مشاهده ▶</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/roidad-img-2.jpg') }}">
+
+            <div class="project-content">
+
+                <h3>افتتاح پروژه برج تجاری الماس</h3>
+
+                <span>مشاهده ▶</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/roidad-img-3.jpg') }}">
+
+            <div class="project-content">
+
+                <h3>برگزاری همایش معماری پایدار و ساختمان سبز</h3>
+
+                <span>مشاهده ▶</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/roidad-img-4.jpg') }}">
+
+            <div class="project-content">
+
+                <h3>انعقاد قرارداد طراحی مجتمع اداری سپهر</h3>
+
+                <span>مشاهده ▶</span>
+
+            </div>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="{{ url_for('static', filename='another_image/roidad-img-5.jpg') }}">
+
+            <div class="project-content">
+
+                <h3>بازدید کارفرمایان از پروژه مرکز خرید نگین</h3>
+
+                <span>مشاهده ▶</span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

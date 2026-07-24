@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+صفحه ادمین
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tamas_ba_ma.css') }}">
+
+<section class="tamas-ba-ma-parent">
+
+    <div class="tamas-ba-ma-">
+        <h2>تماس با ما</h2>
+        <p>ما در رایان سازه مشتاقانه منتظر شنیدن از شما هستیم! برای کسب اطلاعات بیشتر درباره خدمات ما، دریافت مشاوره
+            تخصصی، یا شروع همکاری، لطفاً با ما تماس بگیرید. تیم ما آماده پاسخگویی به سوالات شما و ارائه راهنمایی های
+            لازم است.</p>
+
+        <a href="tel:+989125001000" dir="rtl">
+            <img src="{{ url_for('static', filename='footer_image/call.png') }}" alt="call">
+            تلفن :
+            1000 500 0912
+        </a>
+
+        <a href="mailto:info@example.com">
+            <img src="{{ url_for('static', filename='footer_image/email.png') }}" alt="email">
+            ایمیل :
+            stefan_engineer@gmail.com
+        </a>
+
+        <a href="https://wa.me/989121234567" target="_blank">
+            <img src="{{ url_for('static', filename='footer_image/whatsup.png') }}" alt="whatsup">
+            واتساپ
+        </a>
+
+        <div class="image-links">
+
+            <img src="{{ url_for('static', filename='footer_image/insta.png') }}" alt="insta">
+            <img src="{{ url_for('static', filename='footer_image/telegarm.png') }}" alt="telegarm">
+            <img src="{{ url_for('static', filename='footer_image/aparat.png') }}" alt="aparat">
+            <img src="{{ url_for('static', filename='footer_image/linkdin.png') }}" alt="linkdin">
+            <img src="{{ url_for('static', filename='footer_image/namasha.png') }}" alt="namasha">
+
+
+        </div>
+
+        <div class="address-text">
+            <h3><span>📍</span>تهران-اقدسیه-خیابان رسالت-نبش ساختمان تجاریه ایران تجارت </h3>
+        </div>
+    </div>
+
+</section>
+
+
+
+{% endblock %}
