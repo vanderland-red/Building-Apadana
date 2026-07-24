@@ -68,13 +68,9 @@
 
                     <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
 
-                        <input type="hidden"
-                               name="csrf_token"
-                               value="{{ csrf_token() }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                        <button
-                            class="delete-btn"
-                            onclick="return confirm('آیا از حذف این درخواست مطمئن هستید؟')">
+                        <button class="delete-btn" onclick="return confirm('آیا از حذف این درخواست مطمئن هستید؟')">
 
                             حذف
 
@@ -140,16 +136,11 @@
                         رد شده
                     </span>
 
-                    <form action="{{ url_for('admin.delete_service_this', id=request.id) }}" method="POST">
-
-                        <input type="hidden"
-                               name="csrf_token"
-                               value="{{ csrf_token() }}">
-
+                    <form class="delete-form" action="{{ url_for('admin.delete_service_this', id=request.id) }}"
+                        method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <button class="delete-btn">
-
                             حذف
-
                         </button>
 
                     </form>
@@ -183,6 +174,41 @@
         img.onclick = function () {
             window.open(this.src, "_blank");
         }
+    });
+</script>
+
+<script>
+    
+    const forms = document.querySelectorAll(".delete-form");
+
+    forms.forEach(form => {
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault(); // جلوی ریلود پیش فرض مرورگر را میگیرد
+
+            const formData = new FormData(form); // اطلاعات فرم را اینجا ذخیره میکنیم
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+
+                    if (response.ok) {
+
+                        // حذف کارت از صفحه
+                        form.closest(".history-card").remove();
+
+                    }
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+        });
+
     });
 </script>
 

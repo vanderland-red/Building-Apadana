@@ -16,7 +16,7 @@
             <div class="tag-a-parent">
                 <a href="{{ url_for('general.home') }}">خانه</a> <span><img
                         src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
-                <a href="#">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
+                <a href="{{ url_for('user.want_services') }}">خدمات</a> <span><img src="{{ url_for('static', filename='image/icon-left.jpg') }}"></span>
 
                 <a class="service-title-color" href="#">{{ service.title }}</a>
                 <!-- چون توی بک اند فقط یک کوِیری رو صدا زدیم پس نیاز به نوشتن حلقه نداره-->
