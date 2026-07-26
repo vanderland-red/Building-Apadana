@@ -187,11 +187,6 @@ def delete_service(id):
         return redirect(url_for("user.dashboard"))
 
 
-@bp.route("/user/dashboard/edit-service/<int:id>")
-@login_required
-def edit_service(id) :
-    return render_template("user/edit_service.html", id=id)
-
 
 
 @bp.route("/logout", methods=["GET"])

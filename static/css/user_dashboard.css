@@ -178,6 +178,7 @@ body{
     font-weight:700;
     cursor:pointer;
     transition:.35s;
+    font-family: sans-serif;
 }
 
 .delete-btn:hover{

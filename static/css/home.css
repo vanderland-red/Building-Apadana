@@ -3,7 +3,7 @@ body{
     direction: rtl;
     font-family: Vazirmatn, sans-serif;
 
-    background: #f4f7fb;
+    background-color: #cccdcf90 !important;
 }
 
 .services-parent{
